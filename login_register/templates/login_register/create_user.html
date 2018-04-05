@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册用户</title>
+</head>
+<body>
+<form method="post" action="{% url 'Login_register:create' %}">
+    {% csrf_token %}
+    {{ user }}
+    <br/>
+    <input type="submit" value="注册">
+</form>
+</body>
+</html>
