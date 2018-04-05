@@ -20,6 +20,6 @@ from login_register import views as login_register_views
 
 urlpatterns = [
     path('',ALG_web_views.index),
-    path('login/',login_register_views),
+    path('login/',login_register_views.index),
     path('admin/', admin.site.urls),
 ]
