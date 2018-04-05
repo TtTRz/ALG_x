@@ -4,19 +4,22 @@ from django.db import models
 
 class Person(models.Model):
     # 用户名
-    username = models.CharField('昵称', max_length=30, default='')
+    username = models.CharField('用户名', max_length=30, default='')
     # 用户密码
     password = models.CharField('密码', max_length=30, default='')
     # 用户年龄
-    age = models.IntegerField('年龄', default=0, null=True)
+    age = models.IntegerField('年龄', default=0, null=True,blank=True)
     # 用户角色
-    role = models.ForeignKey('User_Role', on_delete=models.CASCADE, null=True)
+    role = models.ForeignKey('User_Role', on_delete=models.CASCADE, null=True, blank=True)
     # 用户所处年级
-    grade = models.ForeignKey('User_Grade', on_delete=models.CASCADE, null=True)
+    grade = models.ForeignKey('User_Grade', on_delete=models.CASCADE, null=True, blank=True)
     # 用户真实名称
     name = models.CharField('真实姓名', max_length=30, default='', null=True)
     # 联系电话
     telephone = models.CharField('联系电话', max_length = 20, default='', null=True)
+    #QQ
+    # QQnumber = models.CharField('QQ',max_length=13,default='',null=True,blank=True)
+
 
 
     def __str__(self):

@@ -1,15 +1,61 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>注册用户</title>
-</head>
-<body>
-<form method="post" action="{% url 'Login_register:create' %}">
-    {% csrf_token %}
-    {{ user }}
-    <br/>
-    <input type="submit" value="注册">
-</form>
-</body>
+<html lang="zh-CN">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>注册</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'create_user/css/create_user.css' %}">
+
+    </head>
+    <body>
+        <div class="register-container">
+            <h1>ALG</h1>
+            <form method="post" action="{% url 'Login_register:create' %}">
+                <div class="connect">
+                  <p>请如实填写你的资料</p>
+                  <p>带*号为必填</p>
+                </div>
+                {% csrf_token %}
+{#                {{ user }}#}
+                <br>
+                    *用户名：
+{#                    {% csrf_token %}#}
+                    {{ user.username }}
+                <br>
+                <br>
+                    *密码:
+                    {{ user.password }}
+                <br>
+                <br>
+                    *真实姓名：
+                    {{ user.name }}
+                <br>
+                <br>
+                    *联系电话：
+                    {{ user.telephone }}
+                <br>
+                <button type="submit" value="注册">注册</button>
+            </form>
+            <a href="index.html">
+                <button type="button" class="register-tis">已经有账号？</button>
+            </a>
+        </div>
+    </body>
+    <script src="{% static 'create_user/js/jquery.min.js' %}"></script>
+    <script src="{% static 'create_user/js/common.js' %}"></script>
+    <!--背景图片自动更换-->
+    <script src="{% static 'create_user/js/supersized.3.2.7.min.js' %}"></script>
+    <script src="{% static 'create_user/js/supersized-init.js' %}"></script>
+    <!--表单验证-->
+    <script src="{% static 'create_user/js/jquery.validate.min.js'%}"></script>
+
+
+{#<form method="post" action="{% url 'Login_register:create' %}">#}
+{#    {% csrf_token %}#}
+{#    {{ user }}#}
+{#    <br/>#}
+{#    <input type="submit" value="注册">#}
+{#</form>#}
 </html>
