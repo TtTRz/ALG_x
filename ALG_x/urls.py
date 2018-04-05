@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ALG_web import views as ALG_web_views
-from login_register import views as login_register_views
+from django.conf.urls import include
+
 
 urlpatterns = [
     path('',ALG_web_views.index),
-    path('login/',login_register_views.index),
+    path('login_register/', include('login_register.urls', namespace='Login_register')),
     path('admin/', admin.site.urls),
 ]
