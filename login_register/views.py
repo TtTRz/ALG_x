@@ -70,11 +70,9 @@ def es_test(username, password):
     except:
         return False
 
-
-def login(request, choose):
-    """教务账户登陆或者数据库账户登陆"""
-    if choose == '1':
-        # 教务登陆
+def es_login(request):
+    """教务账户登陆"""
+    if request.method == 'POST':
         user = User(request.POST)
 
         if user.is_valid():
@@ -99,9 +97,20 @@ def login(request, choose):
                 return render(request, 'login_register/login.html', {'user': user,
                                                                      'alert': 'alert',
                                                                      'write': '密码错误'})
+        else:
+            user = User()
+            return render(request, 'login_register/login.html', {'user': user,
+                                                                 'alert': 'alert',
+                                                                 'write': '输入有误或用户名不存在'})
+    else:
+        user = User()
+        return render(request, 'login_register/login.html', {'user' : user})
 
-    elif choose == '2':
-        # 数据库账户登陆
+
+
+def self_login(request):
+    """数据库账户登陆"""
+    if request.method == 'POST':
         user = User(request.POST)
         if user.is_valid():
             username = user.cleaned_data['username']
@@ -128,6 +137,11 @@ def login(request, choose):
                 return render(request, 'login_register/login.html', {'user': user,
                                                                      'alert': 'alert',
                                                                      'write': '用户名不存在'})
+        else:
+            user = User()
+            return render(request, 'login_register/login.html', {'user': user,
+                                                                 'alert': 'alert',
+                                                                 'write': '输入有误或用户名不存在'})
     else:
         user = User()
         return render(request, 'login_register/login.html', {'user': user})
