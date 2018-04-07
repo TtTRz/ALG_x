@@ -21,8 +21,10 @@
 	<div class="connect">
 		<p>您的满意是我们最大的动力</p>
 	</div>
-    <form method="post" >
-{#        action="{% url 'Login_register:login'%}"#}
+    <form method="post">
+        <p style="color: #cb003f;font-size: 18px">{{ write }}</p>
+    </form>
+    <form method="post" action="{% url 'Login_register:self_login'%}">
         <div>
             用户名：
             {% csrf_token %}
@@ -30,27 +32,15 @@
             <br>
             <br>
             密码：
-            {% csrf_token %}
             {{ user.password }}
             <br>
             <button id="submit" type="submit" value="登陆">登 陆</button>
-            <input type="hidden" value="1">
         </div>
     </form>
-{#	<form action="" method="post" id="loginForm">#}
-{#		<div>#}
-{#			<input type="text" name="username" class="username" placeholder="用户名" autocomplete="off"/>#}
-{#		</div>#}
-{#		<div>#}
-{#			<input type="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />#}
-{#		</div>#}
-{#		<button id="submit" type="submit">登 陆</button>#}
-{#	</form>#}
 
 	<a href="/login_register/create">
 		<button type="button" class="register-tis">还有没有账号？</button>
 	</a>
-
 </div>
 
 </body>

@@ -7,7 +7,6 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="{% static 'create_user/css/create_user.css' %}">
-
     </head>
     <body>
         <div class="register-container">
@@ -16,7 +15,6 @@
                 <div class="connect">
                   <p>请如实填写你的资料</p>
                   <p>带*号为必填</p>
-                    <p>带*号为必填</p>
                 </div>
                 {% csrf_token %}
 {#                {{ user }}#}
@@ -41,7 +39,7 @@
                 <br>
                 <button type="submit" value="注册">注 册</button>
             </form>
-            <a href="/login_register/login/">
+            <a href="/login_register/self_login/">
                 <button type="button" class="register-tis">已经有账号？</button>
             </a>
         </div>

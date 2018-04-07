@@ -30,6 +30,20 @@ class User(forms.ModelForm):
             'grade': '年级',
         }
 
+# 新建一个登陆用户的类用来做登陆的表单验证
+
+class Login_User(forms.ModelForm):
+    class Meta:
+        model = models.Person
+        fields = [
+            'username',
+            'password',
+        ]
+        widgets = {
+            'password' : forms.PasswordInput(),
+        }
+
+
 def es_test(username, password):
     """教务登陆验证"""
     try:
@@ -37,7 +51,7 @@ def es_test(username, password):
         # 获取表单信息
         url = 'http://es.bnuz.edu.cn/default2.aspx'
         header = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'}
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'}
 
         r = requests.get(url, headers=header)
         r.raise_for_status()
@@ -70,11 +84,10 @@ def es_test(username, password):
         return False
 
 
-def login(request, choose):
-    """教务账户登陆或者数据库账户登陆"""
-    if choose == '1':
-        # 教务登陆
-        user = User(request.POST)
+def es_login(request):
+    """教务账户登陆"""
+    if request.method == 'POST':
+        user = Login_User(request.POST)
 
         if user.is_valid():
             username = user.cleaned_data['username']
@@ -89,19 +102,51 @@ def login(request, choose):
 
                 """若第一次以教务账号登陆，数据库生成该账户信息"""
 
-                if not models.Person.objects.get(username=username):
-                    models.Person.objects.create(username=username, password=password)
 
-                return redirect('http://http://127.0.0.1:8000/login_register/inside')
+                # if not models.Person.objects.get(username = username):
+                #     models.Person.objects.create(username=username, password=password)
+                try:
+                    models.Person.objects.get(username = username)
+                except models.Person.DoesNotExist:
+                    p = models.Person()
+                    p.username = username
+                    p.password = password
+                    p.save()
+
+
+                """
+                    直接使用get函数
+                    当找不到匹配的query时
+                    会报DoesNotExit exception
+                    错误例子：
+                    if not models.Person.objects.get(username = username):
+                        models.Person.objects.create(username=username, password=password)
+                """
+
+
+                # return redirect('http://http://127.0.0.1:8000/login_register/inside')
+                return render(request, 'login_register/try_inside.html',{'username':username,'write':"esok"})
+
             else:
-                user = User()
-                return render(request, 'login_register/login.html', {'user': user,
+                user = Login_User()
+                return render(request, 'login_register/es_login.html', {'user': user,
                                                                      'alert': 'alert',
                                                                      'write': '密码错误'})
+        else:
+            user = Login_User()
+            return render(request, 'login_register/es_login.html', {'user': user,
+                                                                 'alert': 'alert',
+                                                                 'write': '输入有误或用户名不存在'})
+    else:
+        user = Login_User()
+        return render(request, 'login_register/es_login.html', {'user' : user})
 
-    elif choose == '2':
-        # 数据库账户登陆
-        user = User(request.POST)
+
+
+def self_login(request):
+    """数据库账户登陆"""
+    if request.method == 'POST':
+        user = Login_User(request.POST)
         if user.is_valid():
             username = user.cleaned_data['username']
             password = user.cleaned_data['password']
@@ -116,20 +161,27 @@ def login(request, choose):
                     '''
                     request.session['login'] = username
 
-                    return redirect('http://http://127.0.0.1:8000/login_register/inside')
+                    # return redirect('http://http://127.0.0.1:8000/login_register/inside')
+                    return render(request, 'login_register/try_inside.html',{'username':username,'write':"ok"})
                 else:
-                    user = User()
-                    return render(request, 'login_register/login.html', {'user': user,
+                    user = Login_User()
+                    return render(request, 'login_register/self_login.html', {'user': user,
                                                                          'alert': 'alert',
                                                                          'write': '密码错误'})
             except:
-                user = User()
-                return render(request, 'login_register/login.html', {'user': user,
+                user = Login_User()
+                return render(request, 'login_register/self_login.html', {'user': user,
                                                                      'alert': 'alert',
                                                                      'write': '用户名不存在'})
+        else:
+            user = Login_User()
+
+            return render(request, 'login_register/self_login.html', {'user': user,
+                                                                 'alert': 'alert',
+                                                                 'write': '输入有误或用户名不存在'})
     else:
-        user = User()
-        return render(request, 'login_register/login.html', {'user': user})
+        user = Login_User()
+        return render(request, 'login_register/self_login.html', {'user': user})
 
 
 def create(request):
