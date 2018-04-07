@@ -129,3 +129,8 @@ STATICFILES_DIRS = (
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+#关闭浏览器进程session失效
+SESSION_COOKIE_AGE = 60 * 60
+#60分钟之后session失效
+
