@@ -2,15 +2,17 @@ import re
 
 import requests
 from django import forms
-from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
 from . import models
 
 
 # Create your views here.
 
+
 class User(forms.ModelForm):
+    """创建表单"""
     class Meta:
         model = models.Person
         fields = [
@@ -30,7 +32,10 @@ class User(forms.ModelForm):
 
 
 def es_test(username, password):
+    """教务登陆验证"""
     try:
+
+        # 获取表单信息
         url = 'http://es.bnuz.edu.cn/default2.aspx'
         header = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'}
@@ -54,6 +59,7 @@ def es_test(username, password):
             "Button4_test": ''
         }
 
+        # 登陆验证
         s = requests.post(url, data=data, headers=header)
         s.raise_for_status()
         s.encoding = s.apparent_encoding
@@ -64,8 +70,11 @@ def es_test(username, password):
     except:
         return False
 
+
 def login(request, choose):
+    """教务账户登陆或者数据库账户登陆"""
     if choose == '1':
+        # 教务登陆
         user = User(request.POST)
 
         if user.is_valid():
@@ -73,24 +82,26 @@ def login(request, choose):
             password = user.cleaned_data['password']
 
             if es_test(username, password):
-                '''
+                """
                     关闭浏览器进程session无效
                     session在60分钟后无效
-                '''
+                """
                 request.session['login'] = username
+
+                """若第一次以教务账号登陆，数据库生成该账户信息"""
+
+                if not models.Person.objects.get(username=username):
+                    models.Person.objects.create(username=username, password=password)
+
                 return redirect('http://http://127.0.0.1:8000/login_register/inside')
             else:
                 user = User()
-                return render(request, 'login_register/login.html', {'user' : user,
-                                                                     'alert' : 'alert',
-                                                                     'write' : '密码错误'})
-            '''
-                前端代码加入一句
-                    <script>{{alert}}("{{write}}"))
-                自己的数据库账号同理
-            '''
+                return render(request, 'login_register/login.html', {'user': user,
+                                                                     'alert': 'alert',
+                                                                     'write': '密码错误'})
 
     elif choose == '2':
+        # 数据库账户登陆
         user = User(request.POST)
         if user.is_valid():
             username = user.cleaned_data['username']
@@ -109,9 +120,9 @@ def login(request, choose):
                     return redirect('http://http://127.0.0.1:8000/login_register/inside')
                 else:
                     user = User()
-                    return render(request, 'login_register/login.html', {'user' : user,
-                                                                         'alert' : 'alert',
-                                                                         'write' : '密码错误'})
+                    return render(request, 'login_register/login.html', {'user': user,
+                                                                         'alert': 'alert',
+                                                                         'write': '密码错误'})
             except:
                 user = User()
                 return render(request, 'login_register/login.html', {'user': user,
@@ -119,9 +130,11 @@ def login(request, choose):
                                                                      'write': '用户名不存在'})
     else:
         user = User()
-        return render(request, 'login_register/login.html', {'user' : user})
+        return render(request, 'login_register/login.html', {'user': user})
+
 
 def create(request):
+    """注册账户"""
     if request.method == 'POST':
         user = User(request.POST)
 
@@ -137,8 +150,8 @@ def create(request):
 
 
 def inside(request):
+    """内部视图（测试）"""
     if request.session['login']:
         return render(request, 'login_register/try_inside.html')
     else:
         return HttpResponse("gun")
-
