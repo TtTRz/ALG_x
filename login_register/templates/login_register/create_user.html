@@ -11,17 +11,20 @@
     </head>
     <body>
         <div class="register-container">
-            <h1>ALG</h1>
+            <h1 style="font-size: 35px">ALG</h1>
             <form method="post" action="{% url 'Login_register:create' %}">
                 <div class="connect">
                   <p>请如实填写你的资料</p>
                   <p>带*号为必填</p>
+                    <p>带*号为必填</p>
                 </div>
                 {% csrf_token %}
 {#                {{ user }}#}
                 <br>
-                    *用户名：
-{#                    {% csrf_token %}#}
+                <div class="connect2">
+                    <p>*用户名：</p>
+                </div>
+{#                          {% csrf_token %}#}
                     {{ user.username }}
                 <br>
                 <br>
@@ -36,9 +39,9 @@
                     *联系电话：
                     {{ user.telephone }}
                 <br>
-                <button type="submit" value="注册">注册</button>
+                <button type="submit" value="注册">注 册</button>
             </form>
-            <a href="index.html">
+            <a href="/login_register/login/">
                 <button type="button" class="register-tis">已经有账号？</button>
             </a>
         </div>
@@ -46,8 +49,8 @@
     <script src="{% static 'create_user/js/jquery.min.js' %}"></script>
     <script src="{% static 'create_user/js/common.js' %}"></script>
     <!--背景图片自动更换-->
-    <script src="{% static 'create_user/js/supersized.3.2.7.min.js' %}"></script>
-    <script src="{% static 'create_user/js/supersized-init.js' %}"></script>
+{#    <script src="{% static 'create_user/js/supersized.3.2.7.min.js' %}"></script>#}
+{#    <script src="{% static 'create_user/js/supersized-init.js' %}"></script>#}
     <!--表单验证-->
     <script src="{% static 'create_user/js/jquery.validate.min.js'%}"></script>
 

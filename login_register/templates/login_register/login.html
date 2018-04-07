@@ -1,31 +1,53 @@
+
+{#     前端代码加入一句#}
+{#        <script>{{alert}}("{{write}}"))#}
+{#        密码错误重定向到登陆界面#}
+{#    <input type="hidden" value="">#}
+{#      value = 1 代表教务登陆#}
+{#      value = 2 代表数据库账户登陆#}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'create_user/css/create_user.css' %}">
+    <link rel="stylesheet" href="{% static 'create_user/css/../../../static/login/css/login.css' %}">
     <title>Login</title>
 </head>
 <body>
 
 <div class="login-container">
-	<h1>ShareLink</h1>
+	<h1>登陆</h1>
 
 	<div class="connect">
-		<p>Link the world. Share to world.</p>
+		<p>您的满意是我们最大的动力</p>
 	</div>
+    <form method="post" >
+{#        action="{% url 'Login_register:login'%}"#}
+        <div>
+            用户名：
+            {% csrf_token %}
+            {{ user.username }}
+            <br>
+            <br>
+            密码：
+            {% csrf_token %}
+            {{ user.password }}
+            <br>
+            <button id="submit" type="submit" value="登陆">登 陆</button>
+            <input type="hidden" value="1">
+        </div>
+    </form>
+{#	<form action="" method="post" id="loginForm">#}
+{#		<div>#}
+{#			<input type="text" name="username" class="username" placeholder="用户名" autocomplete="off"/>#}
+{#		</div>#}
+{#		<div>#}
+{#			<input type="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />#}
+{#		</div>#}
+{#		<button id="submit" type="submit">登 陆</button>#}
+{#	</form>#}
 
-	<form action="" method="post" id="loginForm">
-		<div>
-			<input type="text" name="username" class="username" placeholder="用户名" autocomplete="off"/>
-		</div>
-		<div>
-			<input type="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
-		</div>
-		<button id="submit" type="submit">登 陆</button>
-	</form>
-
-	<a href="register.html">
+	<a href="/login_register/create">
 		<button type="button" class="register-tis">还有没有账号？</button>
 	</a>
 
@@ -33,10 +55,10 @@
 
 </body>
 <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/common.js"></script>
+<script src="{% static 'login/js/common.js' %}"></script>
 <!--背景图片自动更换-->
-<script src="js/supersized.3.2.7.min.js"></script>
-<script src="js/supersized-init.js"></script>
+<script src="{% static 'login/js/supersized.3.2.7.min.js' %}"></script>
+<script src="{% static 'login/js/supersized-init.js' %}"></script>
 <!--表单验证-->
-<script src="js/jquery.validate.min.js?var1.14.0"></script>
+<script src="{% static 'login/js/jquery.validate.min.js' %}"></script>
 </html>
