@@ -202,7 +202,11 @@ def create(request):
 
 def inside(request):
     """内部视图（测试）"""
-    if request.session['login']:
+    if request.session.get('login'):
         return render(request, 'login_register/try_inside.html')
     else:
-        return HttpResponse("gun")
+        user = Login_User()
+
+        return render(request, 'login_register/self_login.html', {'user': user,
+                                                                  'alert': 'alert',
+                                                                  'write': '宝贝先登陆 cnm'})
