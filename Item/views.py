@@ -12,7 +12,7 @@ def item_list(request):
     items_all_list = Item.objects.all()
     context = {}
     context['items_all_list'] = items_all_list
-    return render(request, 'item/item_list.html', context)
+    return render(request, 'item_list.html', context)
 
 # 分页
 def get_item_list_common_data(request, items_all_list):
