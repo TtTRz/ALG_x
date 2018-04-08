@@ -6,11 +6,15 @@ from django.core.paginator import Paginator
 from django.contrib.contenttypes.models import ContentType
 from read_statistics.utils import read_statistics_once_read
 # Create your views here.
+
+# 所有商品列表
 def item_list(request):
     items_all_list = Item.objects.all()
     context = {}
     context['items_all_list'] = items_all_list
     return render(request, 'item/item_list.html', context)
+
+# 分页
 def get_item_list_common_data(request, items_all_list):
     paginator = Paginator(items_all_list, settings.EACH_PAGE_BLOGS_NUMBER)
     page_num = request.GET.get('page', 1) # 获取url的页面参数（GET请求）
@@ -30,7 +34,7 @@ def get_item_list_common_data(request, items_all_list):
     if page_range[-1] != paginator.num_pages:
         page_range.append(paginator.num_pages)
 
-
+    # 获取日期归档对应的商品数量
     item_dates = Item.objects.dates('created_time', 'month', order="DESC")
     item_dates_dict = {}
     for item_date in item_dates:
@@ -46,7 +50,7 @@ def get_item_list_common_data(request, items_all_list):
     context['item_dates'] = item_dates_dict
     return context
 
-
+# 商品种类
 def items_with_type(request, item_type_pk):
     item_type = get_object_or_404(ItemType, pk=item_type_pk)
     items_all_list = Item.objects.filter(item_type=item_type)
@@ -54,14 +58,16 @@ def items_with_type(request, item_type_pk):
     context['item_type'] = item_type
     return render(request, 'item/items_with_type.html', context)
 
-
+# 商品发布日期
 def items_with_date(request, year, month):
-    blogs_all_list = Item.objects.filter(created_time__year=year, created_time__month=month)
-    context = get_item_list_common_data(request, blogs_all_list)
+    items_all_list = Item.objects.filter(created_time__year=year, created_time__month=month)
+    context = get_item_list_common_data(request, items_all_list)
     context['items_with_date'] = '%s年%s月' % (year, month)
     return render(request, 'item/items_with_date.html', context)
 
-def blog_detail(request, item_pk):
+
+# 商品具体信息
+def item_detail(request, item_pk):
     item = get_object_or_404(Item, pk=item_pk)
     read_cookie_key = read_statistics_once_read(request, item)
     blog_content_type = ContentType.objects.get_for_model(Item)
@@ -70,9 +76,9 @@ def blog_detail(request, item_pk):
     context = {}
     context['previous_item'] = Item.objects.filter(created_time__gt=item.created_time).last()
     context['next_blog'] = Item.objects.filter(created_time__lt=item.created_time).first()
-    context['blog'] = item
+    context['item'] = item
     # context['comments'] = comments
     # context['comment_form'] = CommentForm(initial={'content_type': blog_content_type.model, 'object_id': blog_pk})
-    response = render(request, 'blog/blog_detail.html', context) # 响应
+    response = render(request, 'item/item_detail.html', context) # 响应
     response.set_cookie(read_cookie_key, 'true') # 阅读cookie标记
     return response
