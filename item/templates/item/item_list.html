@@ -16,8 +16,8 @@
             <a href = {%  url 'item_detail' item.pk %}>
             <h3>{{ item.title }}</h3>
             </a>
-{#        <p>{{ item.content|truncatewords :20 }}</p>#}
-{#            对商品信息（content）的简介#}
+        <p>{{ item.content|truncatechars:20 }}</p>
+{#            提取content的前20个词，对商品信息（content）的简介#}
         {% endfor  %}
 
 </body>
