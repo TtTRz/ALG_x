@@ -237,31 +237,161 @@ search button:hover{
 	height:30px;
 	position:relative;
 	margin-right:10px}
-.dao_list a:hover{ background:#cc2c02}
-.dao_list a.color{ background:#cc2c02; color:#fff}
-aside{ width:210px; height:500px; background:rgba(255,255,255,0.8); position:absolute;top:-480px; left:0;display:block; z-index:2000; opacity:0; box-shadow:0 0 6px rgba(0,0,0,0.3)}
-.import_list{ box-shadow:0 0 6px rgba(0,0,0,0.3)}
-aside ul li.yanses{ background:rgba(235,78,1,0.2)} 
+.dao_list a:hover{
+	background:#cc2c02
+}
+.dao_list a.color{
+	background:#cc2c02;
+	color:#fff
+}
+aside{
+	width:210px;
+	height:500px;
+	background:rgba(255,255,255,0.8);
+	position:absolute;
+	top:-480px;
+	left:0;
+	display:block;
+	z-index:2000;
+	opacity:0;
+	box-shadow:0 0 6px rgba(0,0,0,0.3)
+}
+.import_list{
+	box-shadow:0 0 6px rgba(0,0,0,0.3)
+}
+aside ul li.yanses{
+	background:rgba(235,78,1,0.2)
+}
 /*.important:hover aside{display:block}内页要打开*/
-aside ul li{ overflow:hidden; margin-top:10px}
-aside ul li.li_color{ background:}
-aside ul li h3{ font-size:14px; color:#000; text-indent:10px; font-weight:100; height:30px; line-height:30px}
-aside ul li p{display:block; width:200px; height:auto;margin-left:10px}
-aside ul li p a{ display:block; font-size:14px; line-height:20px; float:left; padding-right:10px;color:#666}
-aside ul li p a:hover{color:#eb4e01}
-.import_list{ width:729px; height:498px; position:absolute; top:30px; left:210px;display:none; background:#FFF; z-index:3000}
-.import_list dt{ font-size:14px; color:#000; line-height:30px;height:30px; margin-top:7px; text-indent:20px}
-.import_list dd{ margin-left:20px; border-bottom:1px dashed #f3f3f3}
-.import_list dd a{ font-size:14px; color:#666; padding-left:6px; padding-right:6px}
-.import_list dd a:hover{ color:#eb4e01}
-.advertisement{ width:250px; height:500px; position:absolute; top:-480px;right:0; z-index:3000;background:#fff; opacity:0}
-.advertisement h4{ font-size:14px; color:#333; font-weight:100; line-height:50px; border-bottom:1px dashed #cccccc; width:230px; margin:0 auto}
-.notice_new{ width:230px; height:230px;margin:0 auto}
-.notice_new a{ font-size:14px; display:block; width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#666; line-height:30px; transition:0.6s}
-.notice_new p{ display:block; width:230px; height:30px; margin:0 auto; overflow:hidden; perspective:1200px}
-.notice_new p:hover a{color:#e60012; margin-left:6px;transform:rotatex(360deg)}
-.notice_img{ width:230px; height:219px; margin:0 auto; box-shadow:0 0 2px rgba(0,0,0,0.2); perspective:1200px; overflow:hidden; position:relative}
-.notice_img img{ display:block; width:230px; height:219px; transition:1.6s; position:absolute; top:0; left:0}
+aside ul li{
+	overflow:hidden;
+	margin-top:10px
+}
+aside ul li.li_color{
+	background:
+}
+aside ul li h3{
+	font-size:14px;
+	color:#000;
+	text-indent:10px;
+	font-weight:100;
+	height:30px;
+	line-height:30px
+}
+aside ul li p{
+	display:block;
+	width:200px;
+	height:auto;
+	margin-left:10px
+}
+aside ul li p a{
+	display:block;
+	font-size:14px;
+	line-height:20px;
+	float:left;
+	padding-right:10px;
+	color:#666
+}
+aside ul li p a:hover{
+	color:#eb4e01
+}
+.import_list{
+	width:729px;
+	height:498px;
+	position:absolute;
+	top:30px;
+	left:210px;
+	display:none;
+	background:#FFF;
+	z-index:3000
+}
+.import_list dt{
+	font-size:14px;
+	color:#000;
+	line-height:30px;
+	height:30px;
+	margin-top:7px;
+	text-indent:20px
+}
+.import_list dd{
+	margin-left:20px;
+	border-bottom:1px dashed #f3f3f3
+}
+.import_list dd a{
+	font-size:14px;
+	color:#666;
+	padding-left:6px;
+	padding-right:6px
+}
+.import_list dd a:hover{
+	color:#eb4e01
+}
+.advertisement{
+	width:250px;
+	height:500px;
+	position:absolute;
+	top:-480px;
+	right:0;
+	z-index:3000;
+	background:#fff;
+	opacity:0
+}
+.advertisement h4{
+	font-size:14px;
+	color:#333;
+	font-weight:100;
+	line-height:50px;
+	border-bottom:1px dashed #cccccc;
+	width:230px;
+	margin:0 auto
+}
+.notice_new{
+	width:230px;
+	height:230px;
+	margin:0 auto
+}
+.notice_new a{
+	font-size:14px;
+	display:block;
+	width:100%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	color:#666;
+	line-height:30px;
+	transition:0.6s
+}
+.notice_new p{
+	display:block;
+	width:230px;
+	height:30px;
+	margin:0 auto;
+	overflow:hidden;
+	perspective:1200px
+}
+.notice_new p:hover a{
+	color:#e60012;
+	margin-left:6px;
+	transform:rotatex(360deg)
+}
+.notice_img{
+	width:230px;
+	height:219px;
+	margin:0 auto;
+	box-shadow:0 0 2px rgba(0,0,0,0.2);
+	perspective:1200px;
+	overflow:hidden;
+	position:relative
+}
+.notice_img img{
+	display:block;
+	width:230px;
+	height:219px;
+	transition:1.6s;
+	position:absolute;
+	top:0;
+	left:0
+}
 .img2{transform:rotateY(90deg)}
 .notice_img:hover img{ transform:rotateY(360deg)}
 
@@ -416,41 +546,3 @@ transform-origin: 95% 95%;-moz-transform-origin: 95% 95%;-ms-transform-origin: 9
 body{ background:#fff}
 .maxbj{width:100%; height:400px; background:url(../images/520304b035ceb.jpg); background-size:cover; position:relative; z-index:-10}
 .maxbj1{ width:100%; height:auto; overflow:hidden; background:#FFF; padding-bottom:12px}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
