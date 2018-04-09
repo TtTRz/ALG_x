@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-<a href="/login_register/create">注册</a>
-<a href="/login_register/self_login">登陆</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block body %}
+    {% include "top.html" %}
+    {% include "ALG_web/../header.html" %}
+{% endblock %}
