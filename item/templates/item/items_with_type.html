@@ -13,7 +13,7 @@
 {#    添加若无相关商品的时候返回页面#}
 
         {% for item in items %}
-            <a href = {%  url 'item_detail' item.pk %}>
+            <a href = {%  url 'item_detail' item.item_type %}>
             <h3>{{ item.title }}</h3>
             </a>
         <p>{{ item.content|truncatechars:20 }}</p>
