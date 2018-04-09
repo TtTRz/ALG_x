@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ALG_web',
     'login_register',
+    'item',
 
 ]
 

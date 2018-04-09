@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from ALG_web import views as ALG_web_views
 from django.conf.urls import include
+from item.views import item_list
 
 
 urlpatterns = [
     path('',ALG_web_views.index),
     path('login_register/', include('login_register.urls', namespace='Login_register')),
     path('admin/', admin.site.urls),
+    path('item/', include('item.urls')),
 ]
