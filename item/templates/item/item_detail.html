@@ -8,8 +8,14 @@
     <div>
         <a href ='{% url 'item_list' %}'>商品列表</a>
     </div>
-{#    将价格，发布人，发布时间什么的也加进去#}
+{#    将价格，发布人，发布时间还有分类什么的也加进去#}
     <h3>{{ item.title }}</h3>
     <p>{{ item.content }}</p>
+    <p>分类
+<a href = '{% url 'items_with_type' item.item_type_pk %}'>
+    {{ item.item_type }}
+</a>
+    </p>
+
 </body>
 </html>
