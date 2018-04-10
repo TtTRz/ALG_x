@@ -6,11 +6,13 @@ from django.core.paginator import Paginator
 # 商品列表
 def item_list(request):
     items_all_list = Item.objects.all()#全部商品
-    paginator = Paginator(items_all_list, 10)  # 每十个商品进行分页
-    page_num =request.GET.get('page',1)#获取url的页码参数（‘GET请求’）
-    page_of_items =paginator.get_page(page_num)#自动识别page系以及是否为有效数字，若不是则返回第一页
+    paginator = Paginator(items_all_list, 10)
+    # 每十个商品进行分页
+    page_num =request.GET.get('page',1)
+    #获取url的页码参数（‘GET请求’）
+    page_of_items =paginator.get_page(page_num)
+    #自动识别page系以及是否为有效数字，若不是则返回第一页
     context = {}
-
     context['page_of_items'] = page_of_items#该页面的所有商品
     context['item_types'] = ItemType.objects.all()
     #返回所有的商品类型
