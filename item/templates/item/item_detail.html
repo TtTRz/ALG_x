@@ -12,10 +12,9 @@
     <h3>{{ item.title }}</h3>
     <p>{{ item.content }}</p>
     <p>分类
-<a href = '{% url 'items_with_type' item.item_type%}' >
-
-    {{ item.item_type }}
-</a>
+    <a href = '{% url 'items_with_type' item.pk%}' >
+        {{ item.item_type }}
+    </a>
     </p>
 
 </body>

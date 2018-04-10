@@ -6,14 +6,14 @@
 </head>
 <body>
     <div>
-        <h3>商品</h3>
+        <h3>商品类别</h3>
     </div>
     <hr>
       <p>一共有{{ items|length }}件商品</p>
 {#    添加若无相关商品的时候返回页面#}
 
         {% for item in items %}
-            <a href = {%  url 'item_detail' item.item_type %}>
+            <a href = {%  url 'item_detail' item.item_type_id %}>
             <h3>{{ item.title }}</h3>
             </a>
         <p>{{ item.content|truncatechars:20 }}</p>
