@@ -6,7 +6,8 @@ from . models import Item,ItemType
 def item_list(request):
     context = {}
     context['items'] = Item.objects.all()#返回所有商品的信息
-
+    context['item_types'] = ItemType.objects.all()
+    #返回所有的商品类型
     return render_to_response('item/item_list.html',context)
 # 商品详细内容
 def  item_detail(request,item_pk):
