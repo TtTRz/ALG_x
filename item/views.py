@@ -16,9 +16,10 @@ def  item_detail(request,item_pk):
 
 
 #商品类型分类（同一类放在一起）
-def  items_with_type(request,items_with_type_pk):
+def  items_with_type(request,items_type_pk):
+
     context = {}
-    item_type = get_object_or_404(ItemType,pk = items_with_type_pk)
+    item_type = get_object_or_404(ItemType,pk = items_type_pk)
     context['items'] = Item.objects.filter(item_type = item_type)
     context['item_type'] = item_type
     return render_to_response('item/items_with_type.html',context)
