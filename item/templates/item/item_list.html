@@ -9,16 +9,31 @@
         <h3>商品</h3>
     </div>
     <hr>
-        <p>一共有{{ items|length }}件商品</p>
+    <div>
+        {% for page_num in page_of_items.paginator.page_range %}
+            <!-----判断是否在当前页面，如果是则该页面的编号会凸显出来,----->
+            {% if page_num == page_of_items.number %}
+                <li class = 'active'><span>{{ page_num }}</span></li>
+            {% else %}
+                <li><a href = '?page={{ page_num }}'>{{ page_num }}</a></li>
+            {% endif %}
+
+        {% endfor %}
+    <!-----显示各个页面例如有四页则显示1，2，3，4---->
+    </div>
+    <!-----显示所有page的商品---->
+        <p>一共有{{ page_of_items.paginator.count}}件商品</p>
+
     <!------添加若无相关商品的时候返回页面---->
-        {% for item in items %}
+    <!-----根据每一个不同的page显示不同的页面的item----->
+        {% for item in page_of_items.object_list %}
             <a href = {%  url 'item_detail' item.pk %}>
             <h3>{{ item.title }}</h3>
             </a>
             <p>{{ item.content|truncatechars:20 }}</p>
   <!------提取content的前20个词，对商品信息（content）的简介----->
         {% endfor  %}
-    
+
     <!---显示所有分类列表----->
         {% for item_type in item_types %}
             <a href = {% url 'items_with_type' item_type.pk %}>

@@ -10,11 +10,8 @@ class ItemType(models.Model):
         return self.type_name
 
 
-
-
 # 定义商品类型
 class Item(models.Model):
-
     # 商品名称
     title = models.CharField (max_length = 30)
     # 商品内容
@@ -33,3 +30,6 @@ class Item(models.Model):
 
     def  __str__(self):
         return '<Item: %s>'%self.title
+    #按照发布时间的倒序排列
+    class Meta:
+        ordering = ['-created_time']
