@@ -2,12 +2,14 @@ from django.db import models
 from django.contrib.auth.models import  User
 # Create your models here.
 
-
+#商品第一种标签
 class ItemType(models.Model):
     type_name = models.CharField(max_length = 20)
 
     def __str__(self):
         return self.type_name
+
+
 
 
 # 定义商品类型

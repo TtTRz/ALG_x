@@ -11,6 +11,8 @@
     <!-------将价格，发布人，发布时间还有分类什么的也加进去-------->
     <h3>{{ item.title }}</h3>
     <p>{{ item.content }}</p>
+    <p>作者{{ item.author }}</p>
+    <p>发布时间：{{ item.created_time |date:'Y-m-d H:n:s' }}</p>
     <p>分类
     <a href = '{% url 'items_with_type' item.item_type.pk%}' >
         {{ item.item_type }}
