@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block body %}
-    {% include "top.html" %}
-    {% include "ALG_web/../header.html" %}
-    {% include "ALG_web/bar.html" %}
+    {% include 'ALG_web/header.html' %}
+    <script src="{% static 'js/home/owl.carousel.js' %}"></script>
+    <script>
+    $(document).ready(function() {
+      $("#owl-demo").owlCarousel({
+        autoPlay: 3000,
+        items : 5,
+        itemsDesktop : [1199,4],
+        itemsDesktopSmall : [979,4]
+      });
+
+    });
+    </script>
 {% endblock %}
