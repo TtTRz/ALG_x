@@ -189,10 +189,16 @@ def create(request):
         user = User(request.POST)
 
         if user.is_valid():
-            user.save()
-            user = User()
-
-            return render(request, 'login_register/create_user.html', {'user': user})
+            username = user.cleaned_data['username']
+            try:
+                models.Person.objects.get(username=username)
+                user = User()
+                return render(request, 'login_register/create_user.html', {'user': user,
+                                                                           'alert': 'alert',
+                                                                           'write': '用户名已存在'})
+            except models.Person.DoesNotExist:
+                user.save()
+                return render(request, 'login_register/try_inside.html')
 
     else:
         user = User()
@@ -209,3 +215,10 @@ def inside(request):
         return render(request, 'login_register/self_login.html', {'user': user,
                                                                   'alert': 'alert',
                                                                   'write': '宝贝先登陆 cnm'})
+
+def log_off(request):
+    """取消登陆"""
+    if request.method == 'POST':
+        request.session['login'] = None
+
+        return redirect('http://127.0.0.1:8000')
