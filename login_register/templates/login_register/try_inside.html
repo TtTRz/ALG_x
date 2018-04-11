@@ -5,8 +5,10 @@
     <title>测试登陆成功</title>
 </head>
 <body>
-    <form method="post">
-        <h1>嘻嘻{{ write }}</h1>
+<h1>嘻嘻{{ write }}</h1>
+    <form method="post" action="{% url 'login_register:log_off' %}">
+        {% csrf_token %}
+        <button type="submit">取消登陆</button>
     </form>
 </body>
 </html>
