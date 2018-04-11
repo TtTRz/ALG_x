@@ -8,8 +8,8 @@
 body {font-family: 'Ek Mukta', sans-serif;color: #666;background: #fff;font-size: 16px;line-height: 1.6em;font-weight: 400;}
 html, body {width:100%; padding:0; margin:0;}
 
-::-moz-selection{background:#067fe4;color:#fff;text-shadow:none}
-::selection{background: #067fe4;color:#fff;text-shadow:none}
+::-moz-selection{background: #de75e4;color:#fff;text-shadow:none}
+::selection{background: #de75e4;color:#fff;text-shadow:none}
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
@@ -93,7 +93,7 @@ body.sub-page .logo {margin: 110px 0 80px;background: url(../images/bg.jpg) fixe
 .link  li:last-child:after{content:'';margin-right:0px;margin-left:0;display:none}
 .link  li ul{display:none}
 
-#menu {background-color: #067fe4;border-radius: 0;padding: 15px 0;}
+#menu {background-color: #e487e0;border-radius: 0;padding: 15px 0;}
 #menu #heading {float: left;padding-left: 15px;font-size: 20px;font-weight: 700;line-height: 40px;color: #fff;margin-top: 10px;text-transform: uppercase;}
 #menu .dropdown-menu {background-color: #fff;border:none;}
 #menu ul.nav .dropdown-menu li a{color: #000;font-weight: bold;}
