@@ -9,18 +9,7 @@
         <h3>商品</h3>
     </div>
     <hr>
-    <div>
-        {% for page_num in page_of_items.paginator.page_range %}
-            <!-----判断是否在当前页面，如果是则该页面的编号会凸显出来,----->
-            {% if page_num == page_of_items.number %}
-                <li class = 'active'><span>{{ page_num }}</span></li>
-            {% else %}
-                <li><a href = '?page={{ page_num }}'>{{ page_num }}</a></li>
-            {% endif %}
 
-        {% endfor %}
-    <!-----显示各个页面例如有四页则显示1，2，3，4---->
-    </div>
     <!-----显示所有page的商品---->
         <p>一共有{{ page_of_items.paginator.count}}件商品</p>
 
@@ -40,6 +29,27 @@
             <h3>{{ item_type.type_name }}</h3>
             </a>
         {% endfor %}
+
+    <div>
+        {% for page_num in page_range %}
+            <!-----判断是否在当前页面，如果是则该页面的编号会凸显出来,----->
+            {% if page_num == page_of_items.number %}
+                <li class = 'active'><span>{{ page_num }}</span></li>
+            {% else %}
+                <!------若该与首尾页相差超过两页，中间为省略号并且没有办法点击---->
+                {% if page_num == '...' %}
+                     <li><span>{{ page_num }}</span></li>
+                {% else %}
+                <li><a href = '?page={{ page_num }}'>{{ page_num }}</a></li>
+                    {% endif %}
+            {% endif %}
+    <!-----显示各个页面例如有四页则显示1，2，3，4---->
+        {% endfor %}
+    <!----标明页码----->
+        <p>当前第{{ page_of_items.number }}页,
+            共{{ page_of_items.paginator.num_pages }} 页
+        </p>
+    </div>
 
 </body>
 </html>
