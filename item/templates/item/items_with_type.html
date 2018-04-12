@@ -10,7 +10,7 @@
         <h3>商品类别</h3>
     </div>
     <hr>
-      <p>一共有{{ items|length }}件商品</p>
+      <p>一共有{{ page_of_items.paginator.count }}件商品</p>
 {#    添加若无相关商品的时候返回页面#}
     <h3>{{ item_type.type_name }}</h3>
         {% for item in items %}
