@@ -2,7 +2,7 @@
  * slider插件可悬停控制
  */
 ; $(function ($, window, document, undefined) {
-    
+
     Slider = function (container, options) {
         /*
         options = {
@@ -108,7 +108,7 @@
 
             try {
                 controller.children('.' + cls).removeClass(cls);
-                controller.children().eq(index).addClass(cls);
+                controller.children().eq(index).addClass(aa);
             } catch (e) { }
 
             currentIndex = index;
