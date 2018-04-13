@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'login_register',
     # 'haystack',
     'item',
+    'ckeditor',
+    'ckeditor_uploader',
 
 ]
 
@@ -108,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
 
@@ -129,6 +131,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
 
+#创建media文件夹保存上传文件
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+#配置图片上传路径
+CKEDITOR_UPLOAD_PATH = 'upload/'
+
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -137,3 +145,4 @@ SESSION_COOKIE_AGE = 60 * 60
 #60分钟之后session失效
 
 EACH_PAGE_ITEMS_NUMBER = 2
+#规定每一页的商品数量

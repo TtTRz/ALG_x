@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 from ALG_web import views as ALG_web_views
 from django.conf.urls import include
 from item.views import item_list
@@ -25,4 +27,10 @@ urlpatterns = [
     path('login_register/', include('login_register.urls', namespace='Login_register')),
     path('admin/', admin.site.urls),
     path('item/', include('item.urls')),
+    path('ckeditor',include('ckeditor_uploader.urls')),
 ]
+
+urlpatterns+=static(settings.MEDIA_URL ,document_root = settings.MEDIA_ROOT)
+#上传的文件的路径
+
+

@@ -19,14 +19,15 @@
             <a href = {%  url 'item_detail' item.pk %}>
             <h3>{{ item.title }}</h3>
             </a>
-            <p>{{ item.content|truncatechars:20 }}</p>
+            <p>{{ item.content|striptags|truncatechars:20 }}</p>
+            <!----防止输入html源码无法解析---->
   <!------提取content的前20个词，对商品信息（content）的简介----->
         {% endfor  %}
 
     <!---显示所有分类列表----->
         {% for item_type in item_types %}
             <a href = {% url 'items_with_type' item_type.pk %}>
-            <h3>{{ item_type.type_name }}</h3>
+            <h3>{{ item_type.type_name }}  ({{ item_type.item_count }})</h3>
             </a>
         {% endfor %}
 
