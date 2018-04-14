@@ -20,7 +20,7 @@
             自带的id（1，2，3，4......）----->
             <h3>{{ item.title }}</h3>
             </a>
-        <p>{{ item.content|truncatechars:20 }}</p>
+        <p>{{ item.content|striptags|truncatechars:20 }}</p>
 {#            提取content的前20个词，对商品信息（content）的简介#}
         {% endfor  %}
 

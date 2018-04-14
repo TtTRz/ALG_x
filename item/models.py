@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import  User
-from ckeditor_uploader.fields import RichTextUploadingField
+from simditor.fields import RichTextField
 # Create your models here.
 
 #商品第一种标签
@@ -16,7 +16,7 @@ class Item(models.Model):
     # 商品名称
     title = models.CharField (max_length = 30)
     # 商品内容,富文本编辑，可上传文件
-    content =RichTextUploadingField()
+    content =RichTextField()
     #商品类型
     item_type = models.ForeignKey (ItemType,on_delete= models.DO_NOTHING)
     # 商品主人

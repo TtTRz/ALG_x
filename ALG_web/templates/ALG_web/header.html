@@ -1,25 +1,84 @@
 {% load staticfiles %}
-<!--Top-->
-<header>
-    <nav id="top">
+<header class="header" id="header">
+    <div class="header-bg">
+
+    </div>
+    <div class="header-top">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <strong>Welcome to 小猪嗬嗬</strong>
-                    <img src="{% static 'images/ALG_web/home/小猪佩奇.jpg' %} " width="25px" height="25px">
+            <!--<a href="#" class="header-logo"></a>-->
+            <nav class="header-nav">
+                <a href="#" class="item item-cur">主页</a>
+                <a href="#" class="item nav-more1">更多</a>
+                <!--<a href="#" class="nav-more"></a>-->
+                <div class="nav-more__hover">
+                    <div class="wrapper">
+                        <div class="top-part">
+                            <!--<a href="#">闲置数码</a>-->
+                            <!--<a href="#">闲置家电</a>-->
+                            <!--<a href="#">闲置杂货</a>-->
+                            <!--<a href="#">闲置衣物</a>-->
+                            <!--<a href="#">闲置文具</a>-->
+                            <a href="#">全部物品</a>
+                            <a href="#">分类列表</a>
+
+                        </div>
+                        <div class="middle-part">
+                            <a href="#">闲置数码</a>
+                            <a href="#">闲置杂货</a>
+                            <a href="#">闲置鞋服</a>
+                        </div>
+                        <div class="bottom-part">
+                            <i class="pin-icon sprite_icon"></i>
+                            <a href="#">活动</a>
+                            <span class="dot">·</span>
+                            <a href="#">关于</a>
+                            <span class="dot">·</span>
+                            <a href="#">反馈</a>
+                            <span class="dot">·</span>
+                            <a href="#">微博</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-sm-6">
-                    <ul class="list-inline top-link link">
-                        <li><a href="/login_register/self_login"><i class="fa fa-home"></i>登陆</a></li>
-                        <li><a href="/login_register/create"><i class="fa fa-comments"></i>注册</a></li>
-                        <li><a href="#"><i class="fa fa-question-circle"></i>联系我们</a></li>
-                    </ul>
-                </div>
+            </nav>
+            <div class="header-user">
+                <a href="#" class="register">注册</a>
+                <a href="#" class="login">登录</a>
+            </div>
+            <div class="search">
+                <form action="#">
+                    <input type="text" class="search-text" placeholder="搜索你喜欢的">
+                    <a href="#" class="search-btn sprite_icon"></a>
+                </form>
             </div>
         </div>
-    </nav>
+    </div>
+    <div class="banner">
+        <div class="banner-titlte">
+            <img src="{% static 'images/ALG_web/home/banner-title.png' %}" style="height: 75px;width: 300px">
+        </div>
+        <div class="search">
+            <form action="#">
+                <input type="text" class="search-text" placeholder="搜索你喜欢的">
+                <a href="#" class="search-btn sprite_icon"></a>
+            </form>
+        </div>
+    </div>
+</header>
+<!-------注册登陆------->
+<div class="user" id="user">
+        <div class="user-inner">
+            <!--<img src="images/login_logo.png" alt="#" class="login-logo">-->
+            <div class="register">
+                <div class="holder">
+                    <div class="with-line"><span></span></div>
+                    <div class="mail-login">
+                        <input type="text" class="text" placeholder="输入账户名">
+                        <input type="text" class="password" placeholder="输入密码">
+                        <input type="text" class="password" placeholder="输入手机号">
+                        <input type="text" class="password" placeholder="输入邮箱">
 
 
+<<<<<<< HEAD
 	<!--Navigation-->
     <nav id="menu" class="navbar">
 		<div class="container">
@@ -186,3 +245,49 @@
 		</div>
 	</div>
 </header>
+=======
+
+
+                        <a href="#" class="login-up">注册</a>
+                    </div>
+                </div>
+                <div class="switch-login">已有帐号？<a href="#">登录到小猪觅缘</a></div>
+            </div>
+            <div class="login">
+                <div class="holder">
+                    <div class="with-line"><span>用账户名登陆</span></div>
+                    <div class="mail-login">
+                         <form method="post" action="{% url 'Login_register:self_login' %}">
+                             <div>
+                                用户名：
+                                {% csrf_token %}
+                                {{ user.username }}
+                                <br>
+                                <br>
+                                密码：
+                                 {% csrf_token %}
+                                {{ user.password }}
+                                <br>
+                                 <button id="submit" type="submit" value="登陆">登 陆</button>
+                             </div>
+                        </form>
+{#                        <input type="text" class="text" placeholder="输入账户名">#}
+{#                        <input type="text" class="password" placeholder="密码">#}
+{#                        <a href="#" class="login-up">登录</a>#}
+                    </div>
+                    <div class="with-line"><span>用教务账号登陆</span></div>
+                    <div class="buttons">
+                        <a href="#"></a>
+                        <a href="#" ></a>
+                        <a href="#" class="weibo"></a>
+                    </div>
+                    <div class="switch-register clearfix">
+                        <a href="#" class="forget">忘记密码</a>
+                        <p class="go-register">还没有嗬嗬账户？<a href="#">点击注册»</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="close"><span></span></div>
+        </div>
+    </div>
+>>>>>>> 789af63dc6b1c27df72a50cfbdd4cd44ad513c31
