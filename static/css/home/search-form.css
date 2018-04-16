@@ -69,9 +69,9 @@ html,body {height: 100%;}
 .search-wrapper .input-holder .search-icon {
     width:70px;
     height:70px;
-    border:none;
+    border-color: hotpink;
     border-radius:6px;
-    background: #FFF;
+    background: none;
     padding:0px;
     outline:none;
     position: relative;
@@ -117,7 +117,7 @@ html,body {height: 100%;}
     left: 9px;
     top: 18px;
     border-radius: 2px;
-    background: #974BE0;
+    background: hotpink;
 }
 .search-wrapper .input-holder .search-icon span::after {
     width: 14px;
@@ -125,7 +125,7 @@ html,body {height: 100%;}
     left: 0px;
     top: 0px;
     border-radius: 16px;
-    border: 4px solid #974BE0;
+    border: 4px solid hotpink;
 }
 
 .search-wrapper .close {
@@ -158,7 +158,13 @@ html,body {height: 100%;}
     -moz-transition-delay: 0.5s;
     transition-delay: 0.5s;
 }
-.search-wrapper .close::before, .search-wrapper .close::after {
+.search-wrapper .close::after,.search-wrapper .close::before {
+    position:absolute;
+    content:'';
+    /*background: #FFF;*/
+    border-radius: 2px;
+}
+.search-wrapper.active .close::after,.search-wrapper.active .close::before {
     position:absolute;
     content:'';
     background: #FFF;
