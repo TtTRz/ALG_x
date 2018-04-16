@@ -1,4 +1,6 @@
-
+.content{
+    position: relative;
+}
 
 a:link{
     text-decoration: none;
@@ -59,6 +61,9 @@ a:visited{
 
 .mokuai{
     margin-top:20px;
+}
+.mokuai-list{
+    margin-top:10px;
 }
 .listchange{
     margin-top: 30px;
