@@ -19,32 +19,6 @@ a:visited{
     /*position: fixed;*/
     /*z-index: -1;*/
 }
-.navbar{
-    margin-bottom: 0;
-}
-#nav_search_button{
-    background: none;
-    border-color: hotpink;
-    color:white;
-        text-shadow: none;
-}
-#nav_search_button:hover{
-    background-color: #ffffff;
-    border-color: #ff69b4;
-    color: black;
-    text-shadow: none;
-}
-#nav_search_button:focus{
-    outline:deeppink;
-}
-#nav_search_form{
-    border-color: hotpink;
-    background: #363636;
-    width: 300px;
-}
-#nav_search_form:focus{
-    outline:deeppink;
-}
 
 .home-item-href:link{
     text-decoration: none;
@@ -91,23 +65,4 @@ a:visited{
 .more-button:hover{
     background:hotpink;
     color:white;
-}
-
-
-#footer{
-    background: #353535;
-    height: 200px;
-    margin-top:-30px;
-}
-.footer_left{
-
-    
-}
-.footer_mid{
-
-
-}
-.footer_right{
-
-
 }

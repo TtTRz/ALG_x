@@ -18,7 +18,7 @@
         {{ item.item_type }}
     </a>
     </p>
-    <p>{{ item.content }}</p>
+    <p>{{ item.content|safe }}</p>
     <p>上一件:
         {% if previous_item %}
             <a href =  '{% url 'item_detail' previous_item.pk %}'> {{ previous_item.title }}</a>
