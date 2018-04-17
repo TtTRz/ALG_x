@@ -24,90 +24,6 @@
                         </div>
                     {% endfor  %}
                 </div>
-                <div class="row ">
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
                     <!-------分页--------->
                 <div class="row" align="center">
                     <nav aria-label="Page navigation">
@@ -117,11 +33,19 @@
                                     <span aria-hidden="true">&laquo;</span>
                                  </a>
                             </li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
+                            {% for page_num in page_range %}
+                                <!-----判断是否在当前页面，如果是则该页面的编号会凸显出来,----->
+                                {% if page_num == page_of_items.number %}
+                                    <li class="active"><a href="#">{{ page_num }}</a></li>
+                                {% else %}
+                                    <!------若该与首尾页相差超过两页，中间为省略号并且没有办法点击---->
+                                    {% if page_num == '...' %}
+                                        <li><a href="#">{{ page_num }}</a></li>
+                                    {% else %}
+                                        <li><a href = '?page={{ page_num }}'>{{ page_num }}</a></li>
+                                    {% endif %}
+                                {% endif%}
+                            {% endfor %}
                             <li>
                                 <a href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
