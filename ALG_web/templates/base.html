@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title%}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/home/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/bootstrap-theme.css' %}">FF69B4
     {% block css %}{% endblock %}
 </head>
 <body>
 {% block body %}{% endblock%}
+    <script src="{% static 'js/home/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/home/bootstrap.js' %}"></script>
+{% block js %}{% endblock %}
 </body>
 </html>

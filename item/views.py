@@ -34,7 +34,7 @@ def item_list(request):
     context['item_types'] = ItemType.objects.all()
     context['page_range'] = page_range
     #包括当前页面的前后两页页码
-    return render_to_response('item/item_list.html',context)
+    return render_to_response('item/item_list1.html',context)
 # 商品详细内容
 def  item_detail(request,item_pk):
     item = get_object_or_404(Item,pk =item_pk)

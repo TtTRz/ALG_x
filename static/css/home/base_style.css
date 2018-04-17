@@ -28,7 +28,7 @@ a:visited{
 }
 #nav_search_button:hover{
     background-color: #ffffff;
-    border-color: hotpink;
+    border-color: #ff69b4;
     color: black;
     text-shadow: none;
 }
