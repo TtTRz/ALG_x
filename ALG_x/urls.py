@@ -27,7 +27,7 @@ urlpatterns = [
     path('login_register/', include('login_register.urls', namespace='Login_register')),
     path('admin/', admin.site.urls),
     path('item/', include('item.urls')),
-    path('ckeditor',include('ckeditor_uploader.urls')),
+    path('ckeditor/',include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns+=static(settings.MEDIA_URL ,document_root = settings.MEDIA_ROOT)

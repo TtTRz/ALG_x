@@ -3,6 +3,7 @@ import re
 import requests
 from django import forms
 from django.http import HttpResponse
+from .email_test import send_email_test
 from django.shortcuts import render, redirect
 
 from . import models
@@ -18,6 +19,7 @@ class User(forms.ModelForm):
         fields = [
             'username',
             'password',
+            'email',
             'name',
             'telephone',
             'age',
@@ -38,10 +40,19 @@ class Login_User(forms.ModelForm):
         fields = [
             'username',
             'password',
+            'email',
         ]
         widgets = {
             'password' : forms.PasswordInput(),
         }
+
+class Find_Password(forms.ModelForm):
+    class Meta:
+        model = models.Person
+        fields = [
+            'username',
+            'email',
+        ]
 
 
 def es_test(username, password):
@@ -190,6 +201,7 @@ def create(request):
 
         if user.is_valid():
             username = user.cleaned_data['username']
+            email = user.cleaned_data['email']
             try:
                 models.Person.objects.get(username=username)
                 user = User()
@@ -197,8 +209,22 @@ def create(request):
                                                                            'alert': 'alert',
                                                                            'write': '用户名已存在'})
             except models.Person.DoesNotExist:
-                user.save()
-                return render(request, 'login_register/try_inside.html')
+                try:
+                    models.Person.objects.get(email=email)
+                    user = User()
+                    return render(request, 'login_register/create_user.html', {'user': user,
+                                                                               'alert': 'alert',
+                                                                               'write': '邮箱已注册!'})
+                except models.Person.DoesNotExist:
+                    role = models.User_Role(rolenme='访客')
+                    username = user.cleaned_data['username']
+                    user.save()
+                    new_user = models.Person.objects.get(username=username)
+                    new_user.role = role
+                    new_user.save()
+
+                    send_email_test(email, 'create_user')
+                    return HttpResponse("请登陆邮箱激活账户")
 
     else:
         user = User()
@@ -222,3 +248,22 @@ def log_off(request):
         request.session['login'] = None
 
         return redirect('http://127.0.0.1:8000')
+
+# def find_password(request):
+#     if request.method == 'POST':
+#         user = Find_Password(request.POST)
+#         if user.is_valid():
+#             email = user.cleaned_data['email']
+#             username = user.cleaned_data['username']
+#             send_email_test(email, 'find_password')
+
+
+def action_user(request, random_str):
+    """激活账户"""
+    user = models.Person.objects.get(code=random_str)
+    role = models.User_Role.objects.get(rolename='用户')
+    user.role = role
+    user.save()
+
+    return render(request, 'login_register/email_test.html')
+

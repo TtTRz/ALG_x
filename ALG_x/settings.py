@@ -70,6 +70,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'login_register.context_processor.login_forms',
+                'login_register.context_processor.create_forms',
             ],
         },
     },
@@ -147,3 +150,11 @@ SESSION_COOKIE_AGE = 60 * 60
 #60分钟之后session失效
 
 EACH_PAGE_ITEMS_NUMBER = 12
+
+"""邮箱验证设置"""
+EMAIL_HOST = "smtp.163.com"   # 服务器
+EMAIL_PORT = 25               # 一般情况下都为25
+EMAIL_HOST_USER = "ALGxiaozhuhehe@163.com"   # 账号
+EMAIL_HOST_PASSWORD = "shouquanma123"  # 密码
+EMAIL_USE_TLS = False             # 一般都为False
+EMAIL_FROM = "ALGxiaozhuhehe@163.com"        # 邮箱来自

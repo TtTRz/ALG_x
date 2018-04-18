@@ -10,4 +10,5 @@ urlpatterns = [
     path('es_login/', views.es_login, name='es_login'),
     path('inside/', views.inside),
     path('log_off/', views.log_off, name='log_off'),
+    path('email_test/<str:random_str>', views.action_user, name='email_test'),
 ]
