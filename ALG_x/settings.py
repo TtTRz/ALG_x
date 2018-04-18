@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'login_register',
     # 'haystack',
     'item',
+    'ckeditor',
+    'ckeditor_uploader',
+    'read_statistics',
 
 ]
 
@@ -128,6 +131,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
+
+#创建media文件夹保存上传文件
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+#配置图片上传路径
+CKEDITOR_UPLOAD_PATH = 'upload/'
+
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
