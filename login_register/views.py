@@ -40,7 +40,6 @@ class Login_User(forms.ModelForm):
         fields = [
             'username',
             'password',
-            'email',
         ]
         widgets = {
             'password' : forms.PasswordInput(),
@@ -250,6 +249,7 @@ def log_off(request):
         return redirect('http://127.0.0.1:8000')
 
 # def find_password(request):
+#     """找回密码"""
 #     if request.method == 'POST':
 #         user = Find_Password(request.POST)
 #         if user.is_valid():
@@ -266,4 +266,6 @@ def action_user(request, random_str):
     user.save()
 
     return render(request, 'login_register/email_test.html')
+
+
 

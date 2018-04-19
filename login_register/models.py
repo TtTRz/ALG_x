@@ -45,8 +45,6 @@ class Person(models.Model):
     name = models.CharField('真实姓名', max_length=30, default='', null=True)
     # 联系电话
     telephone = models.CharField('联系电话', max_length = 20, default='', null=True)
-    #QQ
-    # QQnumber = models.CharField('QQ',max_length=13,default='',null=True,blank=True)
     # 邮箱地址
     email = models.EmailField('邮箱地址', max_length=50, default='')
     # 邮箱随机密文
