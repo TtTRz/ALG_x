@@ -89,7 +89,7 @@
                 <h1 class="text-center">注册</h1>
             </div>
             <div class="modal-body">
-                <form class="form-group" action="{% url 'Login_register:create'%}">
+                <form class="form-group" method="post" action="{% url 'Login_register:create'%}">
                     <div class="form-group">
                         {% csrf_token %}
                         {{ create_user }}

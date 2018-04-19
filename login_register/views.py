@@ -267,5 +267,5 @@ def action_user(request, random_str):
 
     return render(request, 'login_register/email_test.html')
 
-
+# def person_im
 
