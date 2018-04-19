@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from login_register import models
 # Create your views here.
 def index(request):
+    
     if request.method == 'POST':
         user = Login_User(request.POST)
         if user.is_valid():
