@@ -79,6 +79,6 @@ def  item_detail(request,item_pk):
     #获取当前商品的创建时间，并以这个时间进行比较，大于该时间的最后一个商品则为上一个
     context['next_item'] = Item.objects.filter(created_time__lt = item.created_time).first()
     #h同样方法获取下一个商品
-    response = render(request, 'item/item_detail.html', context)  # 响应
+    response = render(request, 'item/item_detail1.html', context)  # 响应
     response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
     return response

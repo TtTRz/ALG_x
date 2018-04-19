@@ -1,13 +1,22 @@
 {% load staticfiles %}
 <div class="content">
-    <div class="container">
+    <div id="seller-detail" class="container">
         <div class="page-header">
-            <h2>发布人:{{ item.author }}<small>发布时间:{{ item.created_time |date:'Y-m-d H:n:s' }}</small> 所属分类：<a href = '{% url 'items_with_type' item.item_type.pk%}' >
-        {{ item.item_type }}
-    </a></h2>
+            <h2>发布人:{{ item.author }} <small>发布时间:{{ item.created_time |date:'Y-m-d H:n:s' }}</small> </h2>
         </div>
     </div>
     <div class="container">
-
+        <div class="row">
+            <div class="col-md-5">
+                <a class="thumbnail">
+                    <div class="detail-img">
+                        {{ item.content|safe }}
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-7">
+                2
+            </div>
+        </div>
     </div>
 </div>

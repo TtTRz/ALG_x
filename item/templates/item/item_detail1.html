@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load  staticfiles %}
 {% block title %}detail{% endblock %}
-{% block css %}{% endblock %}
+{% block css %}<link rel="stylesheet" href=" {% static 'css/item/item-detail.css'%} "> {% endblock %}
 {% block body %}
     <!-------------引入头------------->
     {% include 'ALG_web/header.html' %}
