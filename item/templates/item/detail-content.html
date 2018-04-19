@@ -7,16 +7,63 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <a class="thumbnail">
                     <div class="detail-img">
-                        {{ item.content|safe }}
+                        123
                     </div>
                 </a>
             </div>
-            <div class="col-md-7">
-                2
+            <div class="col-md-5">
+                 <div id="sell-item-price" class="thumbnail">
+                     <div class="caption">
+                        <h2>{{ item.title }}</h2>
+                         <p>图片与content分开</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#item-imformation" aria-controls="item-imformation" role="tab" data-toggle="tab">宝贝介绍</a></li>
+                    <li role="presentation"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">留言</a></li>
+{#                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>#}
+{#                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>#}
+                  </ul>
+
+          <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="item-imformation">
+                    <div id="sell-item-detail" class="thumbnail">
+                     <div class="caption">
+                         <p>图片大小需要调整</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="message">
+                    <div id="sell-item-detail" class="thumbnail">
+                     <div class="caption">
+
+                    </div>
+                </div>
+                </div>
+{#                <div role="tabpanel" class="tab-pane" id="messages">#}
+{##}
+{#                </div>#}
+            </div>
+
+            </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 </div>
+<script>
+    $('#myTabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>

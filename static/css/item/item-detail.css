@@ -14,6 +14,12 @@ a:visited{
     margin-bottom: 30px;
 }
 .detail-img{
-    width: 400px;
+    width: 600px;
+    height: 500px;
+}
+#sell-item-price{
     height: 300px;
+}
+#sell-item-detail{
+    height: 500px;
 }
