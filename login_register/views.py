@@ -215,7 +215,7 @@ def create(request):
                                                                                'alert': 'alert',
                                                                                'write': '邮箱已注册!'})
                 except models.Person.DoesNotExist:
-                    role = models.User_Role(rolenme='访客')
+                    role = models.User_Role.objects.get(rolename='访客')
                     username = user.cleaned_data['username']
                     user.save()
                     new_user = models.Person.objects.get(username=username)
@@ -267,5 +267,5 @@ def action_user(request, random_str):
 
     return render(request, 'login_register/email_test.html')
 
-
+# def person_im
 

@@ -6,11 +6,10 @@ from login_register.decorate import login_test
 @login_test即可
 """
 
+from django.http import HttpResponse
 
 from . import models
-from django.http import  HttpResponse
-from django.shortcuts import render, redirect
-from django import forms
+
 
 def login_test(func):
     def test(request, *args, **kwargs):
@@ -22,4 +21,5 @@ def login_test(func):
                 return HttpResponse("账户未激活")
         else:
             return HttpResponse("登陆")
+
     return test
