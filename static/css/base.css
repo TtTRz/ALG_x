@@ -1,0 +1,55 @@
+.navbar{
+    margin-bottom: 0;
+}
+#nav_search_button{
+    background: none;
+    border-color: hotpink;
+    color:white;
+        text-shadow: none;
+}
+#nav_search_button:hover{
+    background-color: #ffffff;
+    border-color: #ff69b4;
+    color: black;
+    text-shadow: none;
+}
+#nav_search_button:focus{
+    outline:deeppink;
+}
+#nav_search_form{
+    border-color: hotpink;
+    background: #363636;
+    width: 300px;
+}
+#nav_search_form:focus{
+    outline:deeppink;
+}
+
+
+#footer{
+    background: #353535;
+    height: 150px;
+    /*margin-top:-30px;*/
+
+}
+.footer_left{
+    text-align: center;
+    color: white;
+
+}
+.footer_mid{
+    color: white;
+    text-align: center;
+
+}
+.footer_right{
+    color: white;
+    text-align: center;
+
+
+}
+.fix{
+    padding-top: 30px;
+    color: #f5f5f5;
+    margin-top: 30px;
+}

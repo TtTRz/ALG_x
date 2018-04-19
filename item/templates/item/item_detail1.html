@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load  staticfiles %}
+{% block title %}detail{% endblock %}
+{% block css %}<link rel="stylesheet" href=" {% static 'css/item/item-detail.css'%} "> {% endblock %}
+{% block body %}
+    <!-------------引入头------------->
+    {% include 'ALG_web/header.html' %}
+    <!-----------引入网页详情---------->
+    {% include 'item/detail-content.html' %}
+    <!-----------引入footer----------->
+    {% include 'ALG_web/footer.html' %}
+
+{% endblock %}
