@@ -2,10 +2,12 @@ import re
 
 import requests
 from django import forms
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from . import models
+from .decorate import login_test
 from .email_test import send_email_test
 
 
@@ -92,6 +94,7 @@ def es_test(username, password):
         html2 = s.text
 
         return True if (username in re.findall('欢迎您：.*?</li>', html2)[0]) else False
+
 
     except:
         return False
@@ -269,4 +272,19 @@ def action_user(request, random_str):
 
     return render(request, 'login_register/email_test.html')
 
-# def person_im
+
+@login_test
+def person_information(request):
+    """用户个人中心"""
+    if request.method == 'POST':
+        user = User(request.POST)
+        if user.is_valid():
+            models.Person.objects.get(username=request.session['login']).delete()
+            user.save()
+            person = models.Person.objects.get(username=request.session['login'])
+            user = User(initial=model_to_dict(person))
+            return render(request, 'login_register/user_information.html', {'user': user})
+    else:
+        person = models.Person.objects.get(username=request.session['login'])
+        user = User(initial=model_to_dict(person))
+        return render(request, 'login_register/user_information.html', {'user': user})
