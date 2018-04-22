@@ -25,6 +25,8 @@
     </a>
     </p>
     <p>{{ item.content|safe }}</p>
+    <div>提交评论</div>
+    <div>评论区</div>
     <p>上一件:
         {% if previous_item %}
             <a href =  '{% url 'item_detail' previous_item.pk %}'> {{ previous_item.title }}</a>
