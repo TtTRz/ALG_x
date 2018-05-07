@@ -9,6 +9,7 @@
     {% csrf_token %}
     {{ user }}
     <input type="submit" value="提交修改">
+    <script>{{ alert }}("{{ write }}")</script>
 </form>
 </body>
 </html>

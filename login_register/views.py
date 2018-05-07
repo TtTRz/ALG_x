@@ -177,23 +177,23 @@ def self_login(request):
                     return redirect("/")
                 else:
                     user = Login_User()
-                    return render(request, 'login_register/self_login.html', {'user': user,
+                    return render(request, 'ALG_web/home.html', {'user': user,
                                                                               'alert': 'alert',
                                                                               'write': '密码错误'})
             except:
                 user = Login_User()
-                return render(request, 'login_register/self_login.html', {'user': user,
+                return render(request, 'ALG_web/home.html', {'user': user,
                                                                           'alert': 'alert',
                                                                           'write': '用户名不存在'})
         else:
             user = Login_User()
 
-            return render(request, 'login_register/self_login.html', {'user': user,
+            return render(request, 'ALG_web/home.html', {'user': user,
                                                                       'alert': 'alert',
                                                                       'write': '输入有误或用户名不存在'})
     else:
         user = Login_User()
-        return render(request, 'login_register/self_login.html', {'user': user})
+        return render(request, 'ALG_web/home.html', {'user': user})
 
 
 def create(request):
@@ -207,14 +207,14 @@ def create(request):
             try:
                 models.Person.objects.get(username=username)
                 user = User()
-                return render(request, 'login_register/create_user.html', {'user': user,
+                return render(request, 'ALG_web/home.html', {'user': user,
                                                                            'alert': 'alert',
                                                                            'write': '用户名已存在'})
             except models.Person.DoesNotExist:
                 try:
                     models.Person.objects.get(email=email)
                     user = User()
-                    return render(request, 'login_register/create_user.html', {'user': user,
+                    return render(request, 'ALG_web/home.html', {'user': user,
                                                                                'alert': 'alert',
                                                                                'write': '邮箱已注册!'})
                 except models.Person.DoesNotExist:
@@ -230,7 +230,7 @@ def create(request):
 
     else:
         user = User()
-        return render(request, 'login_register/create_user.html', {'user': user})
+        return render(request, 'ALG_web/home.html', {'user': user})
 
 
 # def inside(request):
@@ -285,12 +285,14 @@ def person_information(request):
             models.Person.objects.get(username=request.session['login']).delete()
             user.save()
             person = models.Person.objects.get(username=request.session['login'])
-            rolename = models.User_Role(rolename="用户")
+            rolename = models.User_Role.objects.get(rolename="用户")
             person.role = rolename
             person.save()
             person = models.Person.objects.get(username=request.session['login'])
             user = User(initial=model_to_dict(person))
-            return render(request, 'login_register/user_information.html', {'user': user})
+            return render(request, 'login_register/user_information.html', {'user': user,
+                                                                            'alert' : 'alert',
+                                                                            'write' : '修改成功。'})
     else:
         person = models.Person.objects.get(username=request.session['login'])
         user = User(initial=model_to_dict(person))
