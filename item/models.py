@@ -1,11 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import  User
 from ckeditor_uploader.fields import RichTextUploadingField
-<<<<<<< HEAD
-=======
 from django.contrib.contenttypes.fields import GenericRelation
 from read_statistics.models import ReadNumExpandMethod, ReadDetail
->>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
 # Create your models here.
 
 #商品第一种标签
@@ -19,15 +16,9 @@ class ItemType(models.Model,ReadNumExpandMethod):
 # 定义商品类型
 class Item(models.Model,ReadNumExpandMethod):
     # 商品名称
-<<<<<<< HEAD
-    title = models.CharField (max_length = 30)
-    # 商品内容,富文本编辑，可上传文件
-    content =RichTextUploadingField()
-=======
     title = models.CharField (max_length = 10)
     # 商品内容,富文本编辑，可上传文件
     content =RichTextUploadingField(blank = True)
->>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
     #商品类型
     item_type = models.ForeignKey (ItemType,on_delete= models.DO_NOTHING,blank =True)
     # 商品主人
