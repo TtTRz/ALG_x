@@ -246,10 +246,8 @@ def create(request):
 
 def log_off(request):
     """取消登陆"""
-    if request.method == 'POST':
-        request.session['login'] = None
-
-        return redirect('http://127.0.0.1:8000')
+    request.session['login'] = None
+    return redirect('/')
 
 
 # def find_password(request):

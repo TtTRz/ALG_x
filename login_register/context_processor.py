@@ -47,5 +47,5 @@ def create_forms(request):
 def user_name(request):
     if request.session.get('login'):
         username = request.session['login']
-    else: username = ""
+    else: username = 0;
     return {'user_name' : username}

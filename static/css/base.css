@@ -82,3 +82,13 @@ input{
 .text-right{
     margin-top: 50px;
 }
+.navbar-inverse .navbar-nav > li > a {
+    color:white !important;
+}
+/*.navbar-inverse .navbar-nav > li > a :hover{*/
+    /*color: deeppink !important;*/
+/*}*/
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: hotpink !important;
+    background-color: transparent;
+}
