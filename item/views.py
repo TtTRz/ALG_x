@@ -2,13 +2,13 @@ from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
-
+from login_register.decorate import login_test
 from read_statistics.utils import read_statistics_once_read
 from .models import Item, ItemType
 
 
 # Create your views here.
-
+# @login_test
 
 def get_item_list_common_date(items_all_list, request):
     paginator = Paginator(items_all_list, settings.EACH_PAGE_ITEMS_NUMBER)
@@ -84,3 +84,6 @@ def item_detail(request, item_pk):
     response = render(request, 'item/item_detail1.html', context)  # 响应
     response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
     return response
+
+
+
