@@ -138,7 +138,7 @@ def es_login(request):
                 """
 
                 # return redirect('http://http://127.0.0.1:8000/login_register/inside')
-                return render(request, 'login_register/try_inside.html', {'username': username, 'write': "esok"})
+                return redirect("/")
 
             else:
                 user = Login_User()
@@ -174,7 +174,7 @@ def self_login(request):
                     request.session['login'] = username
 
                     # return redirect('http://http://127.0.0.1:8000/login_register/inside')
-                    return render(request, 'login_register/try_inside.html', {'username': username, 'write': "ok"})
+                    return redirect("/")
                 else:
                     user = Login_User()
                     return render(request, 'login_register/self_login.html', {'user': user,
@@ -226,22 +226,22 @@ def create(request):
                     new_user.save()
 
                     send_email_test(email, 'create_user')
-                    return HttpResponse("请登陆邮箱激活账户")
+                    return render(request, 'login_register/Prompt.html')
 
     else:
         user = User()
         return render(request, 'login_register/create_user.html', {'user': user})
 
 
-def inside(request):
-    """内部视图（测试）"""
-    if request.session.get('login'):
-        return render(request, 'login_register/try_inside.html')
-    else:
-        user = Login_User()
-        return render(request, 'login_register/self_login.html', {'user': user,
-                                                                  'alert': 'alert',
-                                                                  'write': '宝贝先登陆 cnm'})
+# def inside(request):
+#     """内部视图（测试）"""
+#     if request.session.get('login'):
+#         return render(request, 'login_register/try_inside.html')
+#     else:
+#         user = Login_User()
+#         return render(request, 'login_register/self_login.html', {'user': user,
+#                                                                   'alert': 'alert',
+                                                                  # 'write': '宝贝先登陆 cnm'})
 
 
 def log_off(request):
@@ -264,12 +264,18 @@ def log_off(request):
 
 def action_user(request, random_str):
     """激活账户"""
-    user = models.Person.objects.get(code=random_str)
-    role = models.User_Role.objects.get(rolename='用户')
-    user.role = role
-    user.save()
+    try:
+        user = models.Person.objects.get(code=random_str)
+        role = models.User_Role.objects.get(rolename='用户')
+        user.role = role
+        user.save()
 
-    return render(request, 'login_register/email_test.html')
+        # rs_type用作激活成功与否标志
+        return render(request, 'login_register/email_test.html', {'rs_type' : 1})
+    except:
+        return render(request, 'login_register/email_test.html', {'rs_type' : 0})
+
+
 
 
 @login_test

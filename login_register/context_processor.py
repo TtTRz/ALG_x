@@ -1,5 +1,6 @@
 from .models import Person
 from django import forms
+from .decorate import login_test
 
 class Login_User(forms.ModelForm):
     class Meta():
@@ -41,3 +42,10 @@ def login_forms(request):
 def create_forms(request):
     user = Create_User()
     return {'create_user' : user}
+
+
+def user_name(request):
+    if request.session.get('login'):
+        username = request.session['login']
+    else: username = ""
+    return {'user_name' : username}

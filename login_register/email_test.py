@@ -24,9 +24,7 @@ def send_email_test(email, type_post):
 
         email_title = "请激活邮箱"
         email_body = "点击下面链接以激活账户%s" % url
-        print(1)
         send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
-        print(2)
 
         if send_status:
             pass

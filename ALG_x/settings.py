@@ -74,6 +74,7 @@ TEMPLATES = [
 
                 'login_register.context_processor.login_forms',
                 'login_register.context_processor.create_forms',
+                'login_register.context_processor.user_name',
             ],
         },
     },

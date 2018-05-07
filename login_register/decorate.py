@@ -1,15 +1,25 @@
 """
-所在视图函数
-from login_register.decorate import login_test
-
-在需要验证的视图上添加
-@login_test即可
+登陆验证装饰器
 """
 
 from django.http import HttpResponse
+from django.shortcuts import render
+from django import forms
+from .models import Person
 
 from . import models
 
+
+class User(forms.ModelForm):
+    class Meta():
+        model = Person
+        fields = [
+            'username',
+            'password',
+        ]
+        widgets = {
+            'password' : forms.PasswordInput(),
+        }
 
 def login_test(func):
     def test(request, *args, **kwargs):
@@ -20,9 +30,15 @@ def login_test(func):
                 if user.role.rolename == "用户":
                     return func(request, *args, **kwargs)
             except:
-                return HttpResponse("账户未激活")
+                user = User()
+                return render(request, 'login_register/self_login.html', {'user': user,
+                                                                          'alert': 'alert',
+                                                                          'write': '账户未激活'})
 
         else:
-            return HttpResponse("登陆")
+            user = User()
+            return render(request, 'login_register/self_login.html', {'user': user,
+                                                                      'alert': 'alert',
+                                                                      'write': '请先登陆'})
 
     return test
