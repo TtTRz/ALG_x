@@ -14,11 +14,14 @@ from . import models
 def login_test(func):
     def test(request, *args, **kwargs):
         if request.session.get('login'):
+            print(request.session.get('login'))
             user = models.Person.objects.get(username=request.session['login'])
-            if user.role.rolename == "用户":
-                return func(request, *args, **kwargs)
-            elif user.role.rolename == "访客":
+            try:
+                if user.role.rolename == "用户":
+                    return func(request, *args, **kwargs)
+            except:
                 return HttpResponse("账户未激活")
+
         else:
             return HttpResponse("登陆")
 

@@ -239,7 +239,6 @@ def inside(request):
         return render(request, 'login_register/try_inside.html')
     else:
         user = Login_User()
-
         return render(request, 'login_register/self_login.html', {'user': user,
                                                                   'alert': 'alert',
                                                                   'write': '宝贝先登陆 cnm'})
@@ -281,6 +280,10 @@ def person_information(request):
         if user.is_valid():
             models.Person.objects.get(username=request.session['login']).delete()
             user.save()
+            person = models.Person.objects.get(username=request.session['login'])
+            rolename = models.User_Role(rolename="用户")
+            person.role = rolename
+            person.save()
             person = models.Person.objects.get(username=request.session['login'])
             user = User(initial=model_to_dict(person))
             return render(request, 'login_register/user_information.html', {'user': user})
