@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +25,12 @@
     </a>
     </p>
     <p>{{ item.content|safe }}</p>
+<<<<<<< HEAD
     <!----防止输入html源码无法解析---->
+=======
+    <div>提交评论</div>
+    <div>评论区</div>
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
     <p>上一件:
         {% if previous_item %}
             <a href =  '{% url 'item_detail' previous_item.pk %}'> {{ previous_item.title }}</a>

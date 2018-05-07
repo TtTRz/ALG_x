@@ -1,0 +1,25 @@
+.content{
+    position: relative;
+    background: #f5f5f5;
+}
+
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    color: #000000;
+}
+#seller-detail{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.detail-img{
+    width: 600px;
+    height: 500px;
+}
+#sell-item-price{
+    height: 300px;
+}
+#sell-item-detail{
+    height: 500px;
+}

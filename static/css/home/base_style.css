@@ -1,0 +1,68 @@
+.content{
+    position: relative;
+    background: #f5f5f5;
+}
+
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    color: #000000;
+}
+
+.jumbotron{
+    background: url("../../images/ALG_web/home/jumubk.png");
+    background-size: 100% 100%;
+    margin-top:30px;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+    /*position: fixed;*/
+    /*z-index: -1;*/
+}
+
+.home-item-href:link{
+    text-decoration: none;
+    color: #000000;
+}
+.home-item-href:visited{
+    text-decoration: none;
+    color: #000000;
+}
+.home-item-href:hover{
+    color: hotpink;
+}
+.home-item-tag{
+     color: #000000;
+ }
+
+
+.mokuai{
+    margin-top:20px;
+}
+.mokuai-list{
+    margin-top:10px;
+}
+.listchange{
+    margin-top: 30px;
+}
+.list-change{
+    text-align: right;
+}
+.list-change-a:hover{
+    color:hotpink;
+}
+
+
+
+.more-button{
+    margin-top: 20px;
+    margin-right: 400px;
+    margin-left: 400px;
+    border: 1px solid;
+    border-color: hotpink;
+    border-radius: 20px;
+}
+.more-button:hover{
+    background:hotpink;
+    color:white;
+}

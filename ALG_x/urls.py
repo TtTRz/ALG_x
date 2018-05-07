@@ -27,10 +27,17 @@ urlpatterns = [
     path('login_register/', include('login_register.urls', namespace='Login_register')),
     path('admin/', admin.site.urls),
     path('item/', include('item.urls')),
+<<<<<<< HEAD
     path('ckeditor',include('ckeditor_uploader.urls')),
+=======
+    path('ckeditor/',include('ckeditor_uploader.urls')),
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
 ]
 
 urlpatterns+=static(settings.MEDIA_URL ,document_root = settings.MEDIA_ROOT)
 #上传的文件的路径
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb

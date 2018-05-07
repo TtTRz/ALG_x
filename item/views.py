@@ -1,12 +1,25 @@
-from django.shortcuts import render_to_response ,get_object_or_404
-from . models import Item,ItemType
+from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
+<<<<<<< HEAD
 from django.conf import  settings
 from django.db.models import Count
 # Create your views here.
 
 
 def get_item_list_common_date(items_all_list,request):
+=======
+from django.shortcuts import render, get_object_or_404
+from login_register.decorate import login_test
+from read_statistics.utils import read_statistics_once_read
+from .models import Item, ItemType
+
+
+# Create your views here.
+# @login_test
+
+def get_item_list_common_date(items_all_list, request):
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
     paginator = Paginator(items_all_list, settings.EACH_PAGE_ITEMS_NUMBER)
     # 每5个商品进行分页
     page_num = request.GET.get('page', 1)
@@ -29,12 +42,21 @@ def get_item_list_common_date(items_all_list,request):
     if page_range[-1] != paginator.num_pages:
         page_range.append(paginator.num_pages)
 
+<<<<<<< HEAD
     #获取分类商品的对应商品数量
     item_types = ItemType.objects.all()
     #获取各个分类的数量
     item_types_list =[]
     for item_type in item_types:
         item_type. item_count =Item.objects.filter(item_type = item_type).count()
+=======
+    # 获取分类商品的对应商品数量
+    item_types = ItemType.objects.all()
+    # 获取各个分类的数量
+    item_types_list = []
+    for item_type in item_types:
+        item_type.item_count = Item.objects.filter(item_type=item_type).count()
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
         item_types_list.append(item_type)
 
     context = {}
@@ -45,6 +67,7 @@ def get_item_list_common_date(items_all_list,request):
     context['items'] = page_of_items.object_list
 
     return context
+<<<<<<< HEAD
 # 商品列表
 def item_list(request):
     items_all_list = Item.objects.all()#全部商品
@@ -76,3 +99,43 @@ def  item_detail(request,item_pk):
     context['next_item'] = Item.objects.filter(created_time__lt = item.created_time).first()
     #h同样方法获取下一个商品
     return render_to_response('item/item_detail.html',context)
+=======
+
+
+# 商品列表
+def item_list(request):
+    items_all_list = Item.objects.all()  # 全部商品
+    context = get_item_list_common_date(items_all_list, request)
+    return render(request, 'item/item_list1.html', context)
+
+
+# 商品详细内容
+
+
+# 商品类型分类（同一类放在一起）
+def items_with_type(request, items_type_pk):
+    item_type = get_object_or_404(ItemType, pk=items_type_pk)
+    items_all_list = Item.objects.filter(item_type=item_type)  # 全部商品
+    context = get_item_list_common_date(items_all_list, request)
+    context['item_type'] = item_type
+
+    return render(request, 'item/items_with_type.html', context)
+
+
+def item_detail(request, item_pk):
+    item = get_object_or_404(Item, pk=item_pk)
+    read_cookie_key = read_statistics_once_read(request, item)
+    item_content_type = ContentType.objects.get_for_model(item)
+    context = {}
+    context['item'] = get_object_or_404(Item, pk=item_pk)  # 如果没有该商品目录则返回404
+    context['previous_item'] = Item.objects.filter(created_time__gt=item.created_time).last()
+    # 获取当前商品的创建时间，并以这个时间进行比较，大于该时间的最后一个商品则为上一个
+    context['next_item'] = Item.objects.filter(created_time__lt=item.created_time).first()
+    # h同样方法获取下一个商品
+    response = render(request, 'item/item_detail1.html', context)  # 响应
+    response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
+    return response
+
+
+
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb

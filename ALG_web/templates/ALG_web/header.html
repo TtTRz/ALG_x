@@ -1,56 +1,80 @@
 {% load staticfiles %}
-<header class="header" id="header">
-    <div class="header-bg">
-
-    </div>
-    <div class="header-top">
+<div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <!--<a href="#" class="header-logo"></a>-->
-            <nav class="header-nav">
-                <a href="#" class="item item-cur">主页</a>
-                <a href="#" class="item nav-more1">更多</a>
-                <!--<a href="#" class="nav-more"></a>-->
-                <div class="nav-more__hover">
-                    <div class="wrapper">
-                        <div class="top-part">
-                            <!--<a href="#">闲置数码</a>-->
-                            <!--<a href="#">闲置家电</a>-->
-                            <!--<a href="#">闲置杂货</a>-->
-                            <!--<a href="#">闲置衣物</a>-->
-                            <!--<a href="#">闲置文具</a>-->
-                            <a href="#">全部物品</a>
-                            <a href="#">分类列表</a>
-
-                        </div>
-                        <div class="middle-part">
-                            <a href="#">闲置数码</a>
-                            <a href="#">闲置杂货</a>
-                            <a href="#">闲置鞋服</a>
-                        </div>
-                        <div class="bottom-part">
-                            <i class="pin-icon sprite_icon"></i>
-                            <a href="#">活动</a>
-                            <span class="dot">·</span>
-                            <a href="#">关于</a>
-                            <span class="dot">·</span>
-                            <a href="#">反馈</a>
-                            <span class="dot">·</span>
-                            <a href="#">微博</a>
-                        </div>
-                    </div>
+            <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="color:hotpink">小猪嗬嗬</a>
                 </div>
-            </nav>
-            <div class="header-user">
-                <a href="#" class="register">注册</a>
-                <a href="#" class="login">登录</a>
-            </div>
-            <div class="search">
-                <form action="#">
-                    <input type="text" class="search-text" placeholder="搜索你喜欢的">
-                    <a href="#" class="search-btn sprite_icon"></a>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#"><span class="glyphicon glyphicon-home"></span><span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">闲置数码<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">全部物品</a></li>
+                            <li><a href="#">分类列表</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">闲置杂货<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">全部物品</a></li>
+                            <li><a href="#">分类列表</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">闲置鞋服<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">全部物品</a></li>
+                            <li><a href="#">分类列表</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+{#                            <div class="form-group">#}
+{#                                <input type="text" id="nav_search_text" class="form-control" placeholder="Search">#}
+{#                            </div>#}
+{#                            <button id="nav_search_button" <type></type>="submit" class="btn btn-danger" >确认</button>#}
+                    <div class="input-group">
+                        <input type="text" id="nav_search_form" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                        <button id="nav_search_button" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
+                    </div><!-- /input-group -->
                 </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-toggle="modal" data-target="#login" href=""><span class="glyphicon glyphicon-log-in"></span> 登陆</a></li>
+                    <li><a data-toggle="modal" data-target="#register" href=""><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-send"></span> 联系我们</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">帮助</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
+<<<<<<< HEAD
     </div>
     <div class="banner">
         <div class="banner-titlte">
@@ -247,47 +271,70 @@
 </header>
 =======
 
+=======
+    </nav>
+</div>
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
 
-                        <a href="#" class="login-up">注册</a>
-                    </div>
-                </div>
-                <div class="switch-login">已有帐号？<a href="#">登录到小猪觅缘</a></div>
+<div id="register" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
             </div>
-            <div class="login">
-                <div class="holder">
-                    <div class="with-line"><span>用账户名登陆</span></div>
-                    <div class="mail-login">
-                         <form method="post" action="{% url 'Login_register:self_login' %}">
-                             <div>
-                                用户名：
-                                {% csrf_token %}
-                                {{ user.username }}
-                                <br>
-                                <br>
-                                密码：
-                                 {% csrf_token %}
-                                {{ user.password }}
-                                <br>
-                                 <button id="submit" type="submit" value="登陆">登 陆</button>
-                             </div>
-                        </form>
-{#                        <input type="text" class="text" placeholder="输入账户名">#}
-{#                        <input type="text" class="password" placeholder="密码">#}
-{#                        <a href="#" class="login-up">登录</a>#}
-                    </div>
-                    <div class="with-line"><span>用教务账号登陆</span></div>
-                    <div class="buttons">
-                        <a href="#"></a>
-                        <a href="#" ></a>
-                        <a href="#" class="weibo"></a>
-                    </div>
-                    <div class="switch-register clearfix">
-                        <a href="#" class="forget">忘记密码</a>
-                        <p class="go-register">还没有嗬嗬账户？<a href="#">点击注册»</a></p>
-                    </div>
-                </div>
+            <div class="modal-title">
+                <h1 class="text-center">注册</h1>
             </div>
-            <div class="close"><span></span></div>
+            <div class="modal-body">
+                <form class="form-group" method="post" action="{% url 'Login_register:create'%}">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{ create_user }}
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary" type="submit">提交</button>
+                        <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                    </div>
+                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+                </form>
+            </div>
         </div>
     </div>
+<<<<<<< HEAD
 >>>>>>> 789af63dc6b1c27df72a50cfbdd4cd44ad513c31
+=======
+</div>
+
+
+
+
+  <div id="login" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <button class="close" data-dismiss="modal">
+                      <span>&times;</span>
+                  </button>
+              </div>
+              <div class="modal-title">
+                  <h1 class="text-center">嗬嗬号登陆</h1>
+              </div>
+              <div class="modal-body">
+                  <form class="form-group" method="post" action="{% url 'Login_register:self_login'%}">
+                      <div class="form-group">
+                          {% csrf_token %}
+                          {{ login_user }}
+                      </div>
+                      <div class="text-right">
+                          <button class="btn btn-primary" type="submit" value="登陆">登录</button>
+                          <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                      </div>
+                      <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+                  </form>
+              </div>
+         </div>
+     </div>
+  </div>
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb

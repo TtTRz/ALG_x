@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% block title %}home{% endblock %}
+{% block css%}
+        <link rel="stylesheet" href="{% static 'css/home/base_style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home/search-form.css' %}">
+{% endblock %}
 {% block body %}
+
     <!-----------引入头----------->
     {% include 'ALG_web/header.html' %}
     <!-----------引入网页详情----------->
@@ -9,5 +15,15 @@
     {% include 'ALG_web/footer.html' %}
 
     <!----------JS------------------>
+<<<<<<< HEAD
 
+=======
+    {{ login_user }}
+    <script>
+        $('#myTabs a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
 {% endblock %}

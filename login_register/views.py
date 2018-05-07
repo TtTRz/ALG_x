@@ -1,11 +1,14 @@
-
 import re
+
 import requests
 from django import forms
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from . import models
+from .decorate import login_test
+from .email_test import send_email_test
 
 
 # Create your views here.
@@ -13,11 +16,13 @@ from . import models
 
 class User(forms.ModelForm):
     """创建表单"""
+
     class Meta:
         model = models.Person
         fields = [
             'username',
             'password',
+            'email',
             'name',
             'telephone',
             'age',
@@ -30,6 +35,7 @@ class User(forms.ModelForm):
             'grade': '年级',
         }
 
+
 # 新建一个登陆用户的类用来做登陆的表单验证
 
 class Login_User(forms.ModelForm):
@@ -40,8 +46,17 @@ class Login_User(forms.ModelForm):
             'password',
         ]
         widgets = {
-            'password' : forms.PasswordInput(),
+            'password': forms.PasswordInput(),
         }
+
+
+class Find_Password(forms.ModelForm):
+    class Meta:
+        model = models.Person
+        fields = [
+            'username',
+            'email',
+        ]
 
 
 def es_test(username, password):
@@ -80,6 +95,7 @@ def es_test(username, password):
 
         return True if (username in re.findall('欢迎您：.*?</li>', html2)[0]) else False
 
+
     except:
         return False
 
@@ -102,11 +118,10 @@ def es_login(request):
 
                 """若第一次以教务账号登陆，数据库生成该账户信息"""
 
-
                 # if not models.Person.objects.get(username = username):
                 #     models.Person.objects.create(username=username, password=password)
                 try:
-                    models.Person.objects.get(username = username)
+                    models.Person.objects.get(username=username)
                 except models.Person.DoesNotExist:
                     p = models.Person()
                     p.username = username
@@ -122,24 +137,22 @@ def es_login(request):
                         models.Person.objects.create(username=username, password=password)
                 """
 
-
                 # return redirect('http://http://127.0.0.1:8000/login_register/inside')
-                return render(request, 'login_register/try_inside.html',{'username':username,'write':"esok"})
+                return redirect("/")
 
             else:
                 user = Login_User()
                 return render(request, 'login_register/es_login.html', {'user': user,
-                                                                     'alert': 'alert',
-                                                                     'write': '密码错误'})
+                                                                        'alert': 'alert',
+                                                                        'write': '密码错误'})
         else:
             user = Login_User()
             return render(request, 'login_register/es_login.html', {'user': user,
-                                                                 'alert': 'alert',
-                                                                 'write': '输入有误或用户名不存在'})
+                                                                    'alert': 'alert',
+                                                                    'write': '输入有误或用户名不存在'})
     else:
         user = Login_User()
-        return render(request, 'login_register/es_login.html', {'user' : user})
-
+        return render(request, 'login_register/es_login.html', {'user': user})
 
 
 def self_login(request):
@@ -161,23 +174,23 @@ def self_login(request):
                     request.session['login'] = username
 
                     # return redirect('http://http://127.0.0.1:8000/login_register/inside')
-                    return render(request, 'login_register/try_inside.html',{'username':username,'write':"ok"})
+                    return redirect("/")
                 else:
                     user = Login_User()
                     return render(request, 'login_register/self_login.html', {'user': user,
-                                                                         'alert': 'alert',
-                                                                         'write': '密码错误'})
+                                                                              'alert': 'alert',
+                                                                              'write': '密码错误'})
             except:
                 user = Login_User()
                 return render(request, 'login_register/self_login.html', {'user': user,
-                                                                     'alert': 'alert',
-                                                                     'write': '用户名不存在'})
+                                                                          'alert': 'alert',
+                                                                          'write': '用户名不存在'})
         else:
             user = Login_User()
 
             return render(request, 'login_register/self_login.html', {'user': user,
-                                                                 'alert': 'alert',
-                                                                 'write': '输入有误或用户名不存在'})
+                                                                      'alert': 'alert',
+                                                                      'write': '输入有误或用户名不存在'})
     else:
         user = Login_User()
         return render(request, 'login_register/self_login.html', {'user': user})
@@ -190,6 +203,7 @@ def create(request):
 
         if user.is_valid():
             username = user.cleaned_data['username']
+            email = user.cleaned_data['email']
             try:
                 models.Person.objects.get(username=username)
                 user = User()
@@ -197,24 +211,38 @@ def create(request):
                                                                            'alert': 'alert',
                                                                            'write': '用户名已存在'})
             except models.Person.DoesNotExist:
-                user.save()
-                return render(request, 'login_register/try_inside.html')
+                try:
+                    models.Person.objects.get(email=email)
+                    user = User()
+                    return render(request, 'login_register/create_user.html', {'user': user,
+                                                                               'alert': 'alert',
+                                                                               'write': '邮箱已注册!'})
+                except models.Person.DoesNotExist:
+                    role = models.User_Role.objects.get(rolename='访客')
+                    username = user.cleaned_data['username']
+                    user.save()
+                    new_user = models.Person.objects.get(username=username)
+                    new_user.role = role
+                    new_user.save()
+
+                    send_email_test(email, 'create_user')
+                    return render(request, 'login_register/Prompt.html')
 
     else:
         user = User()
         return render(request, 'login_register/create_user.html', {'user': user})
 
 
-def inside(request):
-    """内部视图（测试）"""
-    if request.session.get('login'):
-        return render(request, 'login_register/try_inside.html')
-    else:
-        user = Login_User()
+# def inside(request):
+#     """内部视图（测试）"""
+#     if request.session.get('login'):
+#         return render(request, 'login_register/try_inside.html')
+#     else:
+#         user = Login_User()
+#         return render(request, 'login_register/self_login.html', {'user': user,
+#                                                                   'alert': 'alert',
+                                                                  # 'write': '宝贝先登陆 cnm'})
 
-        return render(request, 'login_register/self_login.html', {'user': user,
-                                                                  'alert': 'alert',
-                                                                  'write': '宝贝先登陆 cnm'})
 
 def log_off(request):
     """取消登陆"""
@@ -222,3 +250,50 @@ def log_off(request):
         request.session['login'] = None
 
         return redirect('http://127.0.0.1:8000')
+
+
+# def find_password(request):
+#     """找回密码"""
+#     if request.method == 'POST':
+#         user = Find_Password(request.POST)
+#         if user.is_valid():
+#             email = user.cleaned_data['email']
+#             username = user.cleaned_data['username']
+#             send_email_test(email, 'find_password')
+
+
+def action_user(request, random_str):
+    """激活账户"""
+    try:
+        user = models.Person.objects.get(code=random_str)
+        role = models.User_Role.objects.get(rolename='用户')
+        user.role = role
+        user.save()
+
+        # rs_type用作激活成功与否标志
+        return render(request, 'login_register/email_test.html', {'rs_type' : 1})
+    except:
+        return render(request, 'login_register/email_test.html', {'rs_type' : 0})
+
+
+
+
+@login_test
+def person_information(request):
+    """用户个人中心"""
+    if request.method == 'POST':
+        user = User(request.POST)
+        if user.is_valid():
+            models.Person.objects.get(username=request.session['login']).delete()
+            user.save()
+            person = models.Person.objects.get(username=request.session['login'])
+            rolename = models.User_Role(rolename="用户")
+            person.role = rolename
+            person.save()
+            person = models.Person.objects.get(username=request.session['login'])
+            user = User(initial=model_to_dict(person))
+            return render(request, 'login_register/user_information.html', {'user': user})
+    else:
+        person = models.Person.objects.get(username=request.session['login'])
+        user = User(initial=model_to_dict(person))
+        return render(request, 'login_register/user_information.html', {'user': user})

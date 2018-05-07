@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+</head>
+<body>
+<form method="post" action="{% url 'login_register:user_information'  %}">
+    {% csrf_token %}
+    {{ user }}
+    <input type="submit" value="提交修改">
+</form>
+</body>
+</html>

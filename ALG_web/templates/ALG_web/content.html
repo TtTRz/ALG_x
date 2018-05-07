@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<<<<<<< HEAD
 
 	<!-- /////////////////////////////////////////Content -->
 	<div id="page-content" class="index-page">
@@ -1182,543 +1183,588 @@
                 <div class="main-list__wrapper clearfix">
                     <a href="#"></a>
                     <a href="#"></a>
+=======
+<div class="content">
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb
 
-                    <a href="#"><img src="images/cont/main-list__img1.jpg" alt="#"><span>数码</span></a>
-                    <a href="#"><img src="images/cont/main-list__img2.jpg" alt="#"><span>杂物</span></a>
-                    <a href="#"><img src="images/cont/main-list__img5.jpg" alt="#"><span>鞋服</span></a>
-                </div>
-            </div>
-            <div class="main-waterfall">
-                <div class="recommend-line">
-                    <span>数码</span>
-                </div>
-                <div class="main-waterfall__wrapper">
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img1.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
+    <!---------巨幕-------------->
+    <div id="Home" class="jumbotron masthead">
+        <div class="container">
+            <h1 style="color: hotpink;margin-top: 60px"><img src="{% static 'images/logo/logo.png' %}" width="40%" height="30%"></h1>
+            <h2></h2>
+            <section class="container" style="margin-top: 100px;margin-bottom: 120px">
+                <form onsubmit="submitFn(this, event);">
+                    <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" placeholder="Type to search" />
+                            <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
                         </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/小猪佩奇踩泥坑.jpeg" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img3.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img4.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img5.jpg" alt="#"></a>
-                        </div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">乐高蝙蝠侠大电影</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">【2017开年之作】“稀缺之美”系列</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__right"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img6.png" alt="#"></a>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img7.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">乐高蝙蝠侠大电影</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">【2017开年之作】“稀缺之美”系列</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__right"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img8.jpg" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img9.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img10.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img11.jpg" alt="#"></a>
-                        </div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img12.png" alt="#"></a>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img13.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img14.png" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img15.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="getMore-line">
-                    <a href="#">加载更多</a>
-                </div>
-            </div>
-            <div class="main-waterfall">
-                <div class="recommend-line">
-                    <span>鞋服</span>
-                </div>
-                <div class="main-waterfall__wrapper">
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img1.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/小猪佩奇踩泥坑.jpeg" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img3.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img4.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img5.jpg" alt="#"></a>
-                        </div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">乐高蝙蝠侠大电影</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">【2017开年之作】“稀缺之美”系列</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__right"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img6.png" alt="#"></a>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img7.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">乐高蝙蝠侠大电影</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">【2017开年之作】“稀缺之美”系列</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__right"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img8.jpg" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img9.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img10.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img11.jpg" alt="#"></a>
-                        </div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img12.png" alt="#"></a>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img13.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img14.png" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img15.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main-waterfall">
-                <div class="recommend-line">
-                    <span>杂物</span>
-                </div>
-                <div class="main-waterfall__wrapper">
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img1.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/小猪佩奇踩泥坑.jpeg" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img3.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img4.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img5.jpg" alt="#"></a>
-                        </div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">乐高蝙蝠侠大电影</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">【2017开年之作】“稀缺之美”系列</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__right"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img6.png" alt="#"></a>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img7.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">乐高蝙蝠侠大电影</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">【2017开年之作】“稀缺之美”系列</a></h3>
-                                <p><span>45 采集</span><span>119 粉丝</span></p>
-                                <span>来自<a href="#">华纳兄弟电影</a></span>
-                                <i class="info-arrow info-arrow__right"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img8.jpg" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img9.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img10.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img11.jpg" alt="#"></a>
-                        </div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img12.png" alt="#"></a>
-                        </div>
-                    </div>
-                    <div class="main-waterfall__row clearfix">
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img13.jpg" alt="#"></a></div>
-                        <div class="waterfall-box">
-                            <div class="waterfall-info waterfall-info__top">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                            <div class="waterfall-info waterfall-info__bom">
-                                <i class="title"></i>
-                                <h3><a href="#">上传</a></h3>
-                                <p><span>xx人浏览</span><span>xx人留言</span></p>
-                                <span>发布人<a href="#">xxx</a></span>
-                                <i class="info-arrow info-arrow__left"></i>
-                            </div>
-                        </div>
-                        <div class="waterfall-imgbox waterfall-box"><a href="#"><img src="images/cont/waterfall_img14.png" alt="#"></a></div>
-                        <div class="waterfall-imgbox waterfall-box">
-                            <a href="#"><img src="images/cont/waterfall_img15.jpg" alt="#"></a>
-                            <div class="waterfall-collect">
-                                <i class="title"></i>
-                                <div class="info">
-                                    <h4><a href="#">【Gentle.|温存】</a></h4>
-                                    <p><span>688 采集</span><span>749 粉丝</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="getMore-line">
-                    <a href="#">加载更多</a>
-                </div>
-            </div>
-            <div class="main-category">
-                <div class="head clearfix">
-                    <span>以分类浏览小猪</span>
-                </div>
-                <div class="cont clearfix">
-                    <ul class="main-category__group">
-                        <li class="item"><a href="#">闲置数码</a></li>
-                        <li class="item"><a href="#">手机</a></li>
-                        <li class="item"><a href="#">相机</a></li>
-                        <li class="item"><a href="#">笔记本</a></li>
-                        <li class="item"><a href="#">电玩/随身听</a></li>
-                        <li class="item"><a href="#">数码配件</a></li>
-                    </ul>
-                    <ul class="main-category__group">
-                        <li class="item"><a href="#">闲置杂货</a></li>
-                        <li class="item"><a href="#">台灯</a></li>
-                        <li class="item"><a href="#">收纳盒</a></li>
-                        <li class="item"><a href="#">其他</a></li>
-                    </ul>
-                    <ul class="main-category__group">
-                        <li class="item"><a href="#">闲置鞋服</a></li>
-                        <li class="item"><a href="#">男生鞋子</a></li>
-                        <li class="item"><a href="#">女生鞋子</a></li>
-                        <li class="item"><a href="#">男生衣服</a></li>
-                        <li class="item"><a href="#">女生衣服</a></li>
-                        <li class="item"><a href="#">配饰</a></li>
+                        <span class="close" onclick="searchToggle(this, event);"></span>
+                        <div class="result-container">
 
-                    </ul>
-                </div>
-            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+            <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+            <script type="text/javascript">
+                function searchToggle(obj, evt){
+                    var container = $(obj).closest('.search-wrapper');
+
+                    if(!container.hasClass('active')){
+                        container.addClass('active');
+                        evt.preventDefault();
+                    }
+                    else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                        container.removeClass('active');
+                        // clear input
+                        container.find('.search-input').val('');
+                        // clear and hide result container when we press close
+                        container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+                    }
+                }
+
+                function submitFn(obj, evt){
+                    value = $(obj).find('.search-input').val().trim();
+
+                    _html = "Yup yup! Your search text sounds like this: ";
+                    if(!value.length){
+                        _html = "Yup yup! Add some text friend :D";
+                    }
+                    else{
+                        _html += "<b>" + value + "</b>";
+                    }
+
+                    $(obj).find('.result-container').html('<span>' + _html + '</span>');
+                    $(obj).find('.result-container').fadeIn(100);
+
+                    evt.preventDefault();
+                }
+            </script>
+
         </div>
     </div>
 
+    <!---------综合-------------->
+    <div class="container markerting">
+        <div class="row">
+            <!-----首页 个人信息------>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-10">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a class="home-item-tag" href="#maybelike" aria-controls="maybelike" role="tab" data-toggle="tab">
+
+                                <span class="glyphicon glyphicon-heart" style="margin-right: 2px"></span>
+                                猜你喜欢
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a class="home-item-tag" href="#newitem" aria-controls="newitem" role="tab" data-toggle="tab">
+                                <span class="glyphicon glyphicon-star" style="margin-right: 2px"></span>
+                                全新二手
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a class="home-item-tag" href="#lesslocate" aria-controls="lesslocate" role="tab" data-toggle="tab">
+                                <span class="glyphicon glyphicon-fire" style="margin-right: 2px"></span>
+                                最近最火
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="maybelike">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="newitem">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/小猪佩奇.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/小猪佩奇.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/小猪佩奇.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/小猪佩奇.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="lesslocate">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                        <div class="caption">
+                                            <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                            <p><a class="home-item-href" href="" >描述</a></p>
+                                            <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr class="featurette-divider">
+
+    <!---------数码模块---------->
+    <div id="Digital" class="container">
+        <div class="row home-list-shuma-title">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="text-align: center">
+                <h2>闲置数码</h2>
+             </div>
+             <div class="col-md-4 listchange">
+                 <div class="list-change"><a class="list-change-a" href="">
+                     <span class="glyphicon glyphicon-refresh"></span>换一批</a>
+                 </div>
+             </div>
+        </div>
+        <div class="row mokuai">
+            <div class="col-md-12">
+                <div class="row mokuai-list">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mokuai-list">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="more">
+            <div class="col-md-12" align="center">
+                <a href="">
+                    <div class="more-button">More</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="featurette-divider">
+
+    <!---------杂货模块---------->
+    <div id="Goods" class="container">
+        <div class="row home-list-zahuo-title">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="text-align: center">
+                <h2>闲置杂货</h2>
+             </div>
+             <div class="col-md-4 listchange">
+                 <div class="list-change">
+                     <a class="list-change-a" href=""><span class="glyphicon glyphicon-refresh"></span>换一批</a>
+                 </div>
+             </div>
+        </div>
+        <div class="row mokuai">
+            <div class="col-md-12">
+                <div class="row mokuai-list">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mokuai-list">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="more">
+            <div class="col-md-12" align="center">
+                <a href="">
+                    <div class="more-button">More</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="featurette-divider">
+
+    <!---------鞋服模块---------->
+    <div id="clothing" class="container">
+        <div class="row home-list-xiefu-title">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="text-align: center">
+                <h2>闲置鞋服</h2>
+             </div>
+             <div class="col-md-4 listchange">
+                 <div class="list-change">
+                     <a class="list-change-a" href=""><span class="glyphicon glyphicon-refresh"></span>换一批</a>
+                 </div>
+
+             </div>
+        </div>
+        <div class="row mokuai">
+            <div class="col-md-12">
+                <div class="row mokuai-list">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mokuai-list">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                            <div class="caption">
+                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
+                                <p><a class="home-item-href" href="" >描述</a></p>
+                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="more">
+            <div class="col-md-12" align="center">
+                <a href="">
+                    <div class="more-button">More</div>
+                </a>
+            </div>
+        </div>
+    </div>
+<<<<<<< HEAD
+
+=======
+    <div class="fix"></div>
+</div>
+>>>>>>> ea29281fada114167064b81158c2ce87b5b3eafb

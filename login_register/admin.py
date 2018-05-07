@@ -5,6 +5,7 @@ from .models import User_Role,User_Grade,Person
 @admin.register(Person)
 class Person(admin.ModelAdmin):
     list_display = ('username', 'role', 'grade', 'name', 'telephone')
+    list_editable = ('role', 'grade')
 
 @admin.register(User_Grade)
 class UserGrade(admin.ModelAdmin):

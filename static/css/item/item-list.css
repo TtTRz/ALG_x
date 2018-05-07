@@ -1,0 +1,28 @@
+.content{
+    position: relative;
+    background: #f5f5f5;
+}
+
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    color: #000000;
+}
+#item-jumu{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.item-href:link{
+    text-decoration: none;
+    color: black;
+
+}
+.item-href:visited{
+    text-decoration: none;
+    color: #000000;
+}
+.item-href:hover{
+    color: hotpink;
+}
