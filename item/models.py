@@ -29,6 +29,7 @@ class Item(models.Model,ReadNumExpandMethod):
     last_updated_time = models.DateTimeField (auto_now= True)
     # 商品价格 初始为0
     price = models.FloatField(default = 0,blank =True)
+    pic = models.ImageField(upload_to = 'img',null=False,blank=True,verbose_name='上传图片')
     read_details = GenericRelation(ReadDetail)
 
 
