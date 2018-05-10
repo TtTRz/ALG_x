@@ -8,4 +8,5 @@ urlpatterns = [
     path('list/',views.item_list, name = 'item_list'),
     #localhost：8000/item/list
     path("type/<int:items_type_pk>",views.items_with_type,name = 'items_with_type'),
+    path("add/",views.item_add,name='item_add')
 ]

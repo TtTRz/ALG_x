@@ -3,6 +3,8 @@ from django.contrib.auth.models import  User
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.contenttypes.fields import GenericRelation
 from read_statistics.models import ReadNumExpandMethod, ReadDetail
+
+from login_register.models import Person
 # Create your models here.
 
 #商品第一种标签
@@ -22,7 +24,7 @@ class Item(models.Model,ReadNumExpandMethod):
     #商品类型
     item_type = models.ForeignKey (ItemType,on_delete= models.DO_NOTHING,blank =True)
     # 商品主人
-    author  = models.ForeignKey (User,on_delete=models.DO_NOTHING)
+    author  = models.ForeignKey (Person,on_delete=models.DO_NOTHING)
     # 发布商品的时间
     created_time = models.DateTimeField (auto_now_add= True)
     #最后更新时间

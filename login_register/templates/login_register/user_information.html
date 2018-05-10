@@ -19,17 +19,17 @@
             </div>
         </div>
         <div id= "imformation" class="container">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+            <div class="imformation-row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
                     <form method="post" action="{% url 'login_register:user_information'  %}">
                         {% csrf_token %}
                         {{ user }}
-                        <input type="submit" value="提交修改">
+                        <input id="changesubmit"type="submit" value="提交修改">
                         <script>{{ alert }}("{{ write }}")</script>
                     </form>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-3"></div>
             </div>
         </div>
     </div>

@@ -1,4 +1,20 @@
 #imformation-jumu{
-    margin-top: 30px;
+    margin-top: 50px;
+    padding-top: 20px;
     margin-bottom: 30px;
+}
+.page-header{
+    margin:auto;
+}
+#imformation{
+    height: 600px;
+}
+#changesubmit{
+    border-color: hotpink;
+    width: auto;
+    margin: auto;
+}
+#changesubmit:hover{
+    color: white;
+    background: hotpink;
 }

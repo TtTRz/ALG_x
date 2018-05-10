@@ -13,10 +13,12 @@
     <!-----显示所有page的商品---->
         <p>一共有{{ page_of_items.paginator.count}}件商品</p>
 
+
     <!------添加若无相关商品的时候返回页面---->
     <!-----根据每一个不同的page显示不同的页面的item----->
         {% for item in page_of_items.object_list %}
-            <a href = {%  url 'item_detail' item.pk %}>
+            <a href = {%  url 'item_detail' item.pk %}
+
             <h3>{{ item.title }}</h3>
             </a>
             <p>{{ item.content|striptags|truncatechars:20 }}</p>
@@ -43,14 +45,20 @@
                 {% else %}
                 <li><a href = '?page={{ page_num }}'>{{ page_num }}</a></li>
                 {% endif %}
+
+
             {% endif %}
+
     <!-----显示各个页面例如有四页则显示1，2，3，4---->
         {% endfor %}
+
     <!----标明页码----->
         <p>当前第{{ page_of_items.number }}页,
             共{{ page_of_items.paginator.num_pages }} 页
         </p>
     </div>
+
+
 
 </body>
 </html>

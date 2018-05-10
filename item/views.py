@@ -1,10 +1,11 @@
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from login_register.decorate import login_test
 from read_statistics.utils import read_statistics_once_read
 from .models import Item, ItemType
+from .forms import ItemForm
 
 
 # Create your views here.
@@ -55,6 +56,9 @@ def get_item_list_common_date(items_all_list, request):
 def item_list(request):
     items_all_list = Item.objects.all()  # 全部商品
     context = get_item_list_common_date(items_all_list, request)
+    context['item_add'] = '/item/add/'
+
+    print(context)
     return render(request, 'item/item_list1.html', context)
 
 
@@ -84,3 +88,21 @@ def item_detail(request, item_pk):
     response = render(request, 'item/item_detail.html', context)  # 响应
     response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
     return response
+
+
+# 添加商品
+def item_add(request):
+    user_id = request.session.get('id')
+    if not user_id:
+        return redirect('/')
+    if request.method == 'GET':
+        form = ItemForm()
+        return render(request, 'item/item_add.html', {"form": form})
+    if request.method == 'POST':
+        data = request.POST.copy()
+        data['author'] = user_id
+        file = request.FILES
+        form = ItemForm(data, request.FILES)
+        r = form.is_valid()
+        form.save()
+        return redirect('/item/list/')

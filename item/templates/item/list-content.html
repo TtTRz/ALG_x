@@ -10,11 +10,12 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <div class="row">
+
                     <!-----根据每一个不同的page显示不同的页面的item----->
                     {% for item in page_of_items.object_list %}
                         <div class="col-md-3">
                             <div class="thumbnail">
-                                <a class="item-href" href="{%  url 'item_detail' item.pk %}"><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
+                                <a class="item-href" href="{%  url 'item_detail' item.pk %}"><img src="/media/{{item.pic}}" alt="..." class="img-thumbnail" height="200" width="200" style='height:200px;width:200px'></a>
                                 <div class="caption">
                                     <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="item-href" href="{%  url 'item_detail' item.pk %}" >{{ item.title }}</a></h3>
                                      <!------提取content的前20个词，对商品信息（content）的简介----->
@@ -53,9 +54,14 @@
                             </li>
                         </ul>
                     </nav>
+                    <a class="btn btn-default" role="button" href="{{item_add}}">新建</a>
                 </div>
             </div>
+             <!-- <a class="btn btn-default" role="button" href="{{item_add}}"></a> -->
+
+
             <div class="col-md-1"></div>
+
         </div>
     </div>
 <div class="fix"></div>
