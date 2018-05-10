@@ -279,6 +279,7 @@ def action_user(request, random_str):
 @login_test
 def person_information(request):
     """用户个人中心"""
+
     if request.method == 'POST':
         user = User(request.POST)
         if user.is_valid():

@@ -31,13 +31,13 @@ def login_test(func):
                     return func(request, *args, **kwargs)
             except:
                 user = User()
-                return render(request, 'login_register/self_login.html', {'user': user,
+                return render(request, 'ALG_web/home.html', {'user': user,
                                                                           'alert': 'alert',
                                                                           'write': '账户未激活'})
 
         else:
             user = User()
-            return render(request, 'login_register/self_login.html', {'user': user,
+            return render(request, 'ALG_web/home.html', {'user': user,
                                                                       'alert': 'alert',
                                                                       'write': '请先登陆'})
 

@@ -66,3 +66,11 @@ a:visited{
     background:hotpink;
     color:white;
 }
+#email_test{
+    margin: 0 0 0 0 !important;
+    padding: 20% !important;
+}
+#Prompt{
+     margin: 0 0 0 0 !important;
+    padding: 20% !important;
+}

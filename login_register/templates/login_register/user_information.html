@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>个人信息</title>
-</head>
-<body>
-<form method="post" action="{% url 'login_register:user_information'  %}">
-    {% csrf_token %}
-    {{ user }}
-    <input type="submit" value="提交修改">
-    <script>{{ alert }}("{{ write }}")</script>
-</form>
-</body>
-</html>
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}home{% endblock %}
+{% block css%}
+    <link rel="stylesheet" href="{% static 'css/home/base_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/search-form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/user_imformation.css' %}"
+{% endblock %}
+{% block body %}
+
+    <!-----------引入头----------->
+    {% include 'ALG_web/header.html' %}
+    <!-----------引入网页详情----------->
+    <div class="content">
+        <div id="imformation-jumu" class="container">
+            <div class="page-header">
+                <h1>个人信息<small>查看或修改您的个人信息</small></h1>
+            </div>
+        </div>
+        <div id= "imformation" class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="post" action="{% url 'login_register:user_information'  %}">
+                        {% csrf_token %}
+                        {{ user }}
+                        <input type="submit" value="提交修改">
+                        <script>{{ alert }}("{{ write }}")</script>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+    <!-----------引入footer----------->
+    {% include 'ALG_web/footer.html' %}
+    <!----------JS------------------>
+    <script>
+        $('#myTabs a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+{% endblock %}
