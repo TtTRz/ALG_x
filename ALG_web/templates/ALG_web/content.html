@@ -247,46 +247,18 @@
         <div class="row mokuai">
             <div class="col-md-12">
                 <div class="row mokuai-list">
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
+                    {% for item in page_of_items.object_list %}
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <a class="item-href" href="{%  url 'item_detail' item.pk %}"><img src="/media/{{item.pic}}" alt="..." class="img-thumbnail" height="200" width="200" style='height:200px;width:200px'></a>
+                                <div class="caption">
+                                    <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="item-href" href="{%  url 'item_detail' item.pk %}" >{{ item.title }}</a></h3>
+                                     <!------提取content的前20个词，对商品信息（content）的简介----->
+                                    <p><a class="item-href" href="{%  url 'item_detail' item.pk %}" >{{ item.content|truncatechars:20 }}</a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <a href=""><img src="{% static 'images/ALG_web/home/wechat.jpg' %}" alt="..." class="img-thumbnail"></a>
-                            <div class="caption">
-                                <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="home-item-href" href="" >物品名</a></h3>
-                                <p><a class="home-item-href" href="" >描述</a></p>
-                                <!--<p align="center"> <a href="#" class="home-item-btn btn btn-default" role="button">进入</a></p>-->
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="row mokuai-list">
                     <div class="col-md-3">

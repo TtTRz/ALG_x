@@ -2,27 +2,33 @@
 <div class="content">
     <div id="seller-detail" class="container">
         <div class="page-header">
-            <h2>发布人:{{ item.author }} <small>发布时间:{{ item.created_time |date:'Y-m-d H:n:s' }}</small> </h2>
+            <h2>卖家: {{ item.author }} <small>发布时间:{{ item.created_time |date:'Y-m-d H:n:s' }}</small> </h2>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
-                <a class="thumbnail">
-                    <div class="detail-img">
-                        123
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+
+                    <div class="detail-img"  >
+                        <img src = '{{ item.pic.url }}' height="300px" width="400px">
                     </div>
-                </a>
+
             </div>
             <div class="col-md-5">
                  <div id="sell-item-price" class="thumbnail">
                      <div class="caption">
+                         　
                         <h2>{{ item.title }}</h2>
-                         <p>图片与content分开</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                         <br>
+                         <p>价格：{{ item.price }}</p>
+                         <br>
+                         <br>
+                        <p><a href="#" class="btn btn-primary" role="button">想要</a> <a href="#" class="btn btn-default" role="button">与卖家联系</a></p>
                     </div>
                 </div>
             </div>
+            <div class="col-md-1"></div>
         </div>
         <div class="row">
             <div class="col-md-1"></div>
@@ -39,17 +45,18 @@
                 <div role="tabpanel" class="tab-pane active" id="item-imformation">
                     <div id="sell-item-detail" class="thumbnail">
                      <div class="caption">
-                         <p>图片大小需要调整</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                         <br>
+                         <p>{{ item.content|safe }}</p>
+
                     </div>
                 </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="message">
                     <div id="sell-item-detail" class="thumbnail">
-                     <div class="caption">
+                        <div class="caption">
 
+                        </div>
                     </div>
-                </div>
                 </div>
 {#                <div role="tabpanel" class="tab-pane" id="messages">#}
 {##}

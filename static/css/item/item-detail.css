@@ -12,11 +12,12 @@ a:visited{
 #seller-detail{
     margin-top: 30px;
     margin-bottom: 30px;
+    padding-top: 30px;
 }
-.detail-img{
-    width: 600px;
-    height: 500px;
-}
+/*.detail-img{*/
+    /*width: 600px;*/
+    /*height: 500px;*/
+/*}*/
 #sell-item-price{
     height: 300px;
 }

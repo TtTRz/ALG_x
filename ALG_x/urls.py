@@ -26,7 +26,7 @@ urlpatterns = [
     path('',ALG_web_views.index),
     path('login_register/', include('login_register.urls', namespace='Login_register')),
     path('admin/', admin.site.urls),
-    path('item/', include('item.urls')),
+    path('item/', include('item.urls',namespace="Item")),
     path('ckeditor',include('ckeditor_uploader.urls')),
 ]
 

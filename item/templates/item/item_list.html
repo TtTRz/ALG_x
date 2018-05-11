@@ -17,9 +17,9 @@
     <!------添加若无相关商品的时候返回页面---->
     <!-----根据每一个不同的page显示不同的页面的item----->
         {% for item in page_of_items.object_list %}
-            <a href = {%  url 'item_detail' item.pk %}
+            <a href = {%  url 'item_detail' item.pk %}>
 
-            <h3>{{ item.title }}</h3>
+            {{ item.title }}
             </a>
             <p>{{ item.content|striptags|truncatechars:20 }}</p>
             <!----防止输入html源码无法解析---->
