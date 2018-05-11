@@ -126,6 +126,8 @@ def es_login(request):
 
                 except models.Person.DoesNotExist:
                     p = models.Person()
+                    role = models.User_Role.objects.get(rolename='用户')
+                    p.role = role
                     p.username = username
                     p.password = password
                     p.save()
