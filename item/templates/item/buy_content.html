@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<div class="content">
+    <div id="seller-detail" class="container">
+        <div class="page-header">
+            <h2>卖家: {{ item.author }}</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>联系电话：{{ }}</h3>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#myTabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>

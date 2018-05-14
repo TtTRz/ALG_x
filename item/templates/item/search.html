@@ -1,0 +1,11 @@
+    {% extends "item/item_list.html" %}
+
+    {% block title %}
+    	“{{wd}}”&nbsp;-&nbsp;搜索到的商品
+    {% endblock %}
+
+    {% block item_header %}
+    	<div class="alert alert-success" role="alert">
+    		关键字：“{{wd}}” 所有商品
+    	</div>
+    {% endblock %}

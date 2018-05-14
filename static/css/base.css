@@ -92,3 +92,18 @@ input{
     color: hotpink !important;
     background-color: transparent;
 }
+.subbtn{
+    background:white;
+    border-color: hotpink;
+
+}
+.subbut{
+    background:white;
+    border-color: hotpink;
+
+}
+.subbut:hover{
+    background:hotpink;
+    color: white;
+    border-color: hotpink;
+}

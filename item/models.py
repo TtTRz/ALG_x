@@ -14,6 +14,28 @@ class ItemType(models.Model,ReadNumExpandMethod):
     def __str__(self):
         return self.type_name
 
+# # 定义商品状态
+# class ItemState(models.Model,ReadNumExpandMethod):
+#     # 状态名称
+#     state_name = models.CharField('状态', max_length=30)
+#     # 状态等级
+#     permission = models.IntegerField('状态等级', default=1)
+#
+#     def __str__(self):
+#
+#         return self.state_name
+#
+#     '''
+#         状态：
+#             public：
+#                 允许所有操作-------1
+#             private：
+#                 不允许展示不允许交易------2
+#             locked：
+#                 不允许展示取消订单后后允许交易-------3
+#
+#     '''
+
 
 # 定义商品类型
 class Item(models.Model,ReadNumExpandMethod):
@@ -23,6 +45,8 @@ class Item(models.Model,ReadNumExpandMethod):
     content =RichTextUploadingField(blank = True)
     #商品类型
     item_type = models.ForeignKey (ItemType,on_delete= models.DO_NOTHING,blank =True)
+    # 商品状态初始为public
+    # item_state = models.ForeignKey (ItemState,on_delete=models.DO_NOTHING)
     # 商品主人
     author  = models.ForeignKey (Person,on_delete=models.DO_NOTHING)
     # 发布商品的时间

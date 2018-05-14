@@ -20,8 +20,9 @@
             <a href = {%  url 'item_detail' item.pk %}>
 
             {{ item.title }}
+
             </a>
-            <p>{{ item.content|striptags|truncatechars:20 }}</p>
+            <div>{{ item.content|striptags|truncatechars:20 }}</div>
             <!----防止输入html源码无法解析---->
   <!------提取content的前20个词，对商品信息（content）的简介----->
         {% endfor  %}

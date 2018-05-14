@@ -15,7 +15,7 @@
     <h3>{{ item_type.type_name }}</h3>
         {% for item in items %}
             <!-----依次将每个商品显现出来----->
-            <a href = {%  url 'item_detail' item.pk %}>
+            <a href = {%  url 'Item:item_detail' item.pk %}>
             <!-------返回对应的第几个商品detail信息界面,pk是每个item在创建时
             自带的id（1，2，3，4......）----->
             <h3>{{ item.title }}</h3>

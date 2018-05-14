@@ -1,8 +1,16 @@
 {% load staticfiles %}
 <div class="content">
     <div id="item-jumu" class="container">
-        <div class="page-header">
-            <h1>闲置数码<small>一共有{{page_of_items.paginator.count}}件商品</small></h1>
+        <div class="row page-header">
+            <div class="col-md-6">
+                <div >
+                    <h1>{{ type_name }}<small>一共有{{page_of_items.paginator.count}}件商品</small></h1>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-2" style="padding-top: 25px">
+                <a class="subbut btn btn-default" role="button" href="{{item_add}} ">发布闲置</a>
+            </div>
         </div>
     </div>
     <div id="item-list" class="container">
@@ -15,11 +23,12 @@
                     {% for item in page_of_items.object_list %}
                         <div class="col-md-3">
                             <div class="thumbnail">
-                                <a class="item-href" href="{%  url 'item_detail' item.pk %}"><img src="/media/{{item.pic}}" alt="..." class="img-thumbnail" height="200" width="200" style='height:200px;width:200px'></a>
+                                <a class="item-href" href="{%  url 'Item:item_detail' item.pk %}"><img src="/media/{{item.pic}}" alt="..." class="img-thumbnail" height="200" width="200" style='height:200px;width:200px'></a>
                                 <div class="caption">
-                                    <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="item-href" href="{%  url 'item_detail' item.pk %}" >{{ item.title }}</a></h3>
+                                    <h3><span class="glyphicon glyphicon-briefcase"></span> <a class="item-href" href="{%  url 'Item:item_detail' item.pk %}" >{{ item.title }}</a></h3>
+                                    <h4><span><a class="item-href" href="{%  url 'Item:item_detail' item.pk %}" >价格：{{ item.price }}</a></span></h4>
                                      <!------提取content的前20个词，对商品信息（content）的简介----->
-                                    <p><a class="item-href" href="{%  url 'item_detail' item.pk %}" >{{ item.content|truncatechars:20 }}</a></p>
+                                    <a class="item-href" href="{%  url 'Item:item_detail' item.pk %}" >{{ item.content|striptags|truncatechars:20 }}</a>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +63,6 @@
                             </li>
                         </ul>
                     </nav>
-                    <a class="btn btn-default" role="button" href="{{item_add}}">新建</a>
                 </div>
             </div>
 

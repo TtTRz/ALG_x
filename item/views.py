@@ -11,7 +11,7 @@ from .forms import ItemForm
 # Create your views here.
 # @login_test
 
-def get_item_list_common_date(items_all_list, request):
+def get_item_list_common_data(items_all_list, request):
     paginator = Paginator(items_all_list, settings.EACH_PAGE_ITEMS_NUMBER)
     # 每5个商品进行分页
     page_num = request.GET.get('page', 1)
@@ -53,13 +53,31 @@ def get_item_list_common_date(items_all_list, request):
 
 
 # 商品列表
-def item_list(request):
-    items_all_list = Item.objects.all()  # 全部商品
-    context = get_item_list_common_date(items_all_list, request)
+def item_list_digital(request):
+    items_all_list = Item.objects.filter(item_type=1)  # 全部商品
+    context = get_item_list_common_data(items_all_list, request)
     context['item_add'] = '/item/add/'
+    type_name = "闲置数码"
+    print(context)
+    return render(request, 'item/item_list1.html', context,type_name)
+
+def item_list_clothing(request):
+    items_all_list = Item.objects.filter(item_type=2)  # 全部商品
+    context = get_item_list_common_data(items_all_list, request)
+    context['item_add'] = '/item/add/'
+    type_name = "闲置鞋服"
+
+    print(type_name)
+    return render(request, 'item/item_list1.html', context,type_name)
+
+def item_list_groceries(request):
+    items_all_list = Item.objects.filter(item_type=3)  # 全部商品
+    context = get_item_list_common_data(items_all_list, request)
+    context['item_add'] = '/item/add/'
+    type_name = "闲置杂货"
 
     print(context)
-    return render(request, 'item/item_list1.html', context)
+    return render(request, 'item/item_list1.html', context,type_name)
 
 
 # 商品详细内容
@@ -69,7 +87,7 @@ def item_list(request):
 def items_with_type(request, items_type_pk):
     item_type = get_object_or_404(ItemType, pk=items_type_pk)
     items_all_list = Item.objects.filter(item_type=item_type)  # 全部商品
-    context = get_item_list_common_date(items_all_list, request)
+    context = get_item_list_common_data(items_all_list, request)
     context['item_type'] = item_type
 
     return render(request, 'item/items_with_type.html', context)
@@ -91,6 +109,7 @@ def item_detail(request, item_pk):
 
 
 # 添加商品
+@login_test
 def item_add(request):
     user_id = request.session.get('id')
     if not user_id:
@@ -105,4 +124,16 @@ def item_add(request):
         form = ItemForm(data, request.FILES)
         r = form.is_valid()
         form.save()
-        return redirect('/item/list/')
+        return redirect('/')
+
+
+
+
+def search(request):
+    wd = request.GET['wd']
+    if not wd:
+        return render(request, 'item/search_failed.html')
+    items_all_list = Item.objects.filter(title__contains = wd)
+    data =get_item_list_common_data(items_all_list,request)
+    data = {"wd": wd, 'items': items_all_list}
+    return render(request,'item/search_list.html',data)

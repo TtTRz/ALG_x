@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}item-list{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/item/item-list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/404/application-mobile.css'%}" media="only screen and (max-device-width: 480px)" >
+    <link rel="stylesheet" href="{% static 'css/404/application-one.css' %}" media="screen, projection">
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/404/application.js' %}"></script>
+{% endblock %}
+{% block body %}
+    {% include 'ALG_web/header.html' %}
+
+        <div id="wrap" class="clearfix">
+            <div id="header"></div>
+
+            <div id="smash_page" style="margin-top: 100px">
+                <h2></h2>
+                <h2>未找到您搜索的物品</h2>
+            </div>
+
+            <div id="smash" style="bottom: -135px;">
+                <div class="skull" style="cursor: pointer;">
+                    <div class="eyes">
+                        <img alt="Eyes01" class="pupils" src="{% static '/images/404/eyes.png' %}" style="left: 29px; top: 6px;">
+                        <img alt="Hilites02" class="hilites" src="{% static '/images/404/hilites.png' %}" style="left: 20px; top: 10px;">
+                    </div>
+                    <img alt="Face04" class="face" src="{% static '/images/404/face.png' %}">
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
+
+

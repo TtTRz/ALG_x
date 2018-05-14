@@ -7,3 +7,6 @@ class ItemTypeAdmin(admin.ModelAdmin):
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin ):
     list_display = ('id','title','item_type','pic','price','author','get_read_num','created_time','last_updated_time')
+# @admin.register(ItemState)
+# class ItemStateAdmin(admin.ModelAdmin):
+#     list_display = ('state_name','permission')

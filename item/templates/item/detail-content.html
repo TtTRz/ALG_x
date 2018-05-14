@@ -17,14 +17,20 @@
             </div>
             <div class="col-md-5">
                  <div id="sell-item-price" class="thumbnail">
-                     <div class="caption">
+                     <div class="caption" align="center">
                          　
-                        <h2>{{ item.title }}</h2>
+                        <h2>闲置：{{ item.title }}</h2>
                          <br>
                          <p>价格：{{ item.price }}</p>
                          <br>
                          <br>
-                        <p><a href="#" class="btn btn-primary" role="button">想要</a> <a href="#" class="btn btn-default" role="button">与卖家联系</a></p>
+                        <a href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="subbut btn btn-default" role="button" data-toggle="collapse">想要</a>
+                         <div class="collapse" id="collapseExample">
+                            <div class="well">
+                                 {{ item.author.telephone}}
+                            </div>
+                         </div>
+
                     </div>
                 </div>
             </div>
